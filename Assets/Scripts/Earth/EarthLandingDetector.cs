@@ -60,6 +60,7 @@ public class EarthLandingDetector : MonoBehaviour
     // the surface. Cleared once the ship moves back out past
     // (contact distance + exitClearance).
     private bool isInContact;
+    private bool hasBeenInFreeFlight;
 
     // Earth's own velocity is derived from its position delta rather than
     // assumed to be zero, so a landing during orbital motion still measures
@@ -68,6 +69,15 @@ public class EarthLandingDetector : MonoBehaviour
     // not physics, so there's no Rigidbody on it to read velocity from.
     private Vector3 previousEarthPosition;
     private bool havePreviousEarthPosition;
+
+    private float SafeLandingSpeedLimit
+    {
+        get
+        {
+            MissionData selectedMission = MissionSelectManager.SelectedMission;
+            return selectedMission != null ? selectedMission.maxLandingSpeed : safeLandingSpeed;
+        }
+    }
 
     private void Awake()
     {
@@ -82,6 +92,7 @@ public class EarthLandingDetector : MonoBehaviour
     {
         havePreviousEarthPosition = false;
         isInContact = false;
+        hasBeenInFreeFlight = false;
     }
 
     private void OnValidate()
@@ -122,6 +133,19 @@ public class EarthLandingDetector : MonoBehaviour
 
         Vector3 toShip = shipRigidbody.position - earthPosition;
         float distance = toShip.magnitude;
+
+        // Ignore an initial overlap on scene load. A landing can only be
+        // classified after the rocket has first left Earth's full contact
+        // radius and later returned to it.
+        if (!hasBeenInFreeFlight)
+        {
+            if (distance > contactDistance)
+            {
+                hasBeenInFreeFlight = true;
+            }
+
+            return;
+        }
 
         if (!isInContact)
         {
@@ -200,7 +224,7 @@ public class EarthLandingDetector : MonoBehaviour
 
         float relativeSpeed = relativeVelocity.magnitude;
 
-        if (relativeSpeed <= safeLandingSpeed)
+        if (relativeSpeed <= SafeLandingSpeedLimit)
         {
             Debug.Log("EARTH LANDING DETECTED");
             OnSafeLandingDetected?.Invoke();

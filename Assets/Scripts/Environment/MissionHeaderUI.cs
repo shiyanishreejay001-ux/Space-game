@@ -40,6 +40,20 @@ public class MissionHeaderUI : MonoBehaviour
     // gameplay state, just a cached copy of the static reference.
     private MissionData lastMission;
     private bool hasCheckedMission;
+    private bool hasTerminalResult;
+    private bool terminalResultSucceeded;
+
+    private void OnEnable()
+    {
+        EarthLandingDetector.OnSafeLandingDetected += HandleSafeLanding;
+        EarthLandingDetector.OnHardImpactDetected += HandleHardImpact;
+    }
+
+    private void OnDisable()
+    {
+        EarthLandingDetector.OnSafeLandingDetected -= HandleSafeLanding;
+        EarthLandingDetector.OnHardImpactDetected -= HandleHardImpact;
+    }
 
     private void Start()
     {
@@ -96,6 +110,14 @@ public class MissionHeaderUI : MonoBehaviour
     {
         if (statusText == null) return;
 
+        if (hasTerminalResult)
+        {
+            SetStatus(
+                terminalResultSucceeded ? "MISSION COMPLETE" : "MISSION FAILED",
+                terminalResultSucceeded ? SuccessColor : FailedColor);
+            return;
+        }
+
         if (existingResultText != null && !string.IsNullOrWhiteSpace(existingResultText.text))
         {
             string msg = existingResultText.text;
@@ -118,6 +140,26 @@ public class MissionHeaderUI : MonoBehaviour
         }
 
         SetStatus("STATUS: READY", ReadyColor);
+    }
+
+    private void HandleSafeLanding()
+    {
+        ShowTerminalResult(succeeded: true);
+    }
+
+    private void HandleHardImpact()
+    {
+        ShowTerminalResult(succeeded: false);
+    }
+
+    private void ShowTerminalResult(bool succeeded)
+    {
+        if (hasTerminalResult) return;
+
+        hasTerminalResult = true;
+        terminalResultSucceeded = succeeded;
+        Time.timeScale = 0f;
+        RefreshStatus();
     }
 
     private void SetStatus(string text, Color color)

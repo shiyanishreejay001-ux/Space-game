@@ -18,8 +18,8 @@ public class SpaceRocketManager : MonoBehaviour
   [Tooltip("Uniform scale multiplier applied to the rocket ONLY when it arrives in SpaceScene. Does not affect RocketLauncher gameplay size. The rocket's authored gameplay length is ~40.2 units (mesh 2 units long x localScale.y 20.09), so 0.0125 yields a SpaceScene rocket ~0.50 units long against Earth's 6-unit diameter - roughly a 12:1 planet-to-rocket ratio, so the rocket clearly reads as a small craft near a planet rather than a rival-sized object. MUST match ShipSpaceSceneScale.spaceSceneScaleFactor (see comment above).")]
   [SerializeField] private float spaceSceneScaleFactor = 0.0125f;
 
-  [Tooltip("Hard cap (units/sec) on the speed carried into SpaceScene. RocketLauncher ascent legitimately needs very high raw velocity (hundreds-to-thousands of units/sec) to climb the ~2900-unit altitude gap to the SpaceGate trigger in a playable few seconds. SpaceScene, however, is a small, close-scale solar system (Earth is only a few units across) with a smoothed follow camera (SpaceCameraFollow, Lerp-based). Carrying raw ascent velocity 1:1 into SpaceScene made the rocket cross the entire solar system in a fraction of a second - far faster than the camera could ever catch up - so the camera was left staring at empty space with nothing in frame. Clamping the carried speed here keeps RocketLauncher's fast climb completely untouched while giving SpaceScene a sane, camera-trackable cruise speed.\n\n    Task 2.9 (travel-distance/velocity-scale fix): 25 u/s was itself the remaining cause of the same symptom, at SpaceScene's own scale. At SpaceSpawnPoint's radius from Earth (~3.018 units, see EarthRelativeSpawnAnchor) with EarthOrbitalGravity's gravitationalParameter=900, local circular velocity is ~17.3 u/s and escape velocity is ~24.4 u/s - so a 25 u/s cap sat AT/ABOVE escape velocity. Because raw RocketLauncher ascent speed always exceeds this cap in practice, carriedSpeed was effectively always exactly the cap, meaning the ship was launched on an unbound (or barely-bound, enormous-apoapsis) trajectory nearly every time - which then coasted through the tens-to-hundreds-of-units gaps between planets within a few seconds. That is a velocity-scale problem, not a camera or world-distance one, and lowering the cap to 18 u/s (just above local circular, safely below local escape) fixes it directly: the ship now starts on a stable, controllable, mildly elliptical near-Earth orbit (periapsis at the spawn radius, apoapsis only a little further out) instead of escaping. EarthOrbitalGravity.gravitationalParameter and TrajectoryPredictor's reflected copy of it are both untouched - only the speed allowed to carry into SpaceScene changed.")]
-  [SerializeField] private float maxSpaceEntrySpeed = 18f;
+  [Tooltip("Must match EarthOrbitalGravity.gravitationalParameter in SpaceScene. Used with the actual Earth-to-spawn distance to calculate a circular Earth-relative handoff velocity.")]
+  [SerializeField] private float gravitationalParameter = 900f;
 
   private Rigidbody rocketRigidbody;
 
@@ -63,13 +63,16 @@ public class SpaceRocketManager : MonoBehaviour
 
     if (spawnPoint != null)
     {
-      // Preserve the speed the ship had at the moment of transition instead
-      // of resetting it to zero, so the ship keeps moving into SpaceScene
-      // at the same speed it was launched with - but clamped to
-      // maxSpaceEntrySpeed (see tooltip above) so a fast RocketLauncher
-      // ascent doesn't outrun SpaceScene's camera and scale.
-      float rawSpeed = rocketRigidbody != null ? rocketRigidbody.linearVelocity.magnitude : 0f;
-      float carriedSpeed = Mathf.Min(rawSpeed, maxSpaceEntrySpeed);
+      // Scale first so the spawn anchor measures the rocket's final
+      // SpaceScene collider size when it calculates surface clearance.
+      transform.localScale = gameplayScale * spaceSceneScaleFactor;
+      Physics.SyncTransforms();
+
+      EarthRelativeSpawnAnchor spawnAnchor = spawnPoint.GetComponent<EarthRelativeSpawnAnchor>();
+      if (spawnAnchor != null)
+      {
+        spawnAnchor.PlaceOutsideEarth(transform);
+      }
 
       // The rocket model's nose points along its local +Y axis (it stands
       // "up" during launch), but movement in SpaceScene happens along the
@@ -114,11 +117,10 @@ public class SpaceRocketManager : MonoBehaviour
         rocketRigidbody.position = spawnPoint.transform.position;
         rocketRigidbody.rotation = targetRotation;
 
-        // Re-apply the carried (clamped) speed along the spawn point's
-        // forward direction so the ship continues flying "into" the space
-        // scene rather than keeping its old (now misaligned) world-space
-        // heading.
-        rocketRigidbody.linearVelocity = spawnPoint.transform.forward * carriedSpeed;
+        // Enter on a circular orbit relative to Earth, including Earth's
+        // own orbital velocity around the Sun. The spawn position and
+        // rocket orientation are unchanged.
+        rocketRigidbody.linearVelocity = CalculateCircularHandoffVelocity(spawnPoint.transform);
         rocketRigidbody.angularVelocity = Vector3.zero;
         rocketRigidbody.useGravity = false;
 
@@ -133,27 +135,53 @@ public class SpaceRocketManager : MonoBehaviour
         transform.rotation = targetRotation;
       }
 
-      // Scale the whole rocket (root transform, so its colliders scale
-      // along with the visual mesh) down to SpaceScene size. This is applied
-      // last, after position/rotation/velocity are set, and is computed from
-      // the original gameplay scale so it never compounds on repeated
-      // SpaceScene entries and never affects RocketLauncher itself.
-      //
-      // Physics note (Task 2.7): shrinking the root transform changes the
-      // rocket's rendered size and its collider extents, and NOTHING else
-      // that this scene's orbital systems read. EarthOrbitalGravity applies
-      // its force with ForceMode.Acceleration (mass-independent) at
-      // Rigidbody.position - a single point - and TrajectoryPredictor
-      // integrates that same point-mass model, so neither one sees the
-      // rocket's size at all. Rigidbody.mass is untouched here. The orbit,
-      // the apoapsis/periapsis telemetry, and the predicted path are
-      // therefore bit-identical before and after this line.
-      transform.localScale = gameplayScale * spaceSceneScaleFactor;
+      // Scale was applied before spawn placement so the collider clearance
+      // above uses the final SpaceScene rocket size.
     }
     else
     {
       Debug.LogWarning("SpaceSpawnPoint was not found in SpaceScene.");
     }
+  }
+
+  private Vector3 CalculateCircularHandoffVelocity(Transform spawnPoint)
+  {
+    GameObject earthObject = GameObject.Find("Earth");
+    if (earthObject == null)
+    {
+      Debug.LogWarning("SpaceRocketManager: Earth was not found; SpaceScene handoff velocity is zero.");
+      return Vector3.zero;
+    }
+
+    Transform earth = earthObject.transform;
+    Vector3 earthToSpawn = spawnPoint.position - earth.position;
+    float orbitalDistance = earthToSpawn.magnitude;
+    if (orbitalDistance <= 0.0001f)
+    {
+      Debug.LogWarning("SpaceRocketManager: spawn point is at Earth's center; SpaceScene handoff velocity is zero.");
+      return Vector3.zero;
+    }
+
+    Vector3 radialDirection = earthToSpawn / orbitalDistance;
+    Vector3 relativeTangent = Vector3.ProjectOnPlane(spawnPoint.forward, radialDirection);
+    if (relativeTangent.sqrMagnitude <= 0.0001f)
+      relativeTangent = Vector3.ProjectOnPlane(Vector3.right, radialDirection);
+    relativeTangent.Normalize();
+
+    float circularSpeed = Mathf.Sqrt(gravitationalParameter / orbitalDistance);
+    Vector3 earthVelocity = Vector3.zero;
+    PlanetOrbit earthOrbit = earthObject.GetComponent<PlanetOrbit>();
+    if (earthOrbit != null && earthOrbit.orbitEnabled && earthOrbit.orbitCenter != null)
+    {
+      Quaternion inclination = Quaternion.Euler(earthOrbit.orbitInclination, 0f, 0f);
+      Vector3 flatOffset = Quaternion.Inverse(inclination) * (earth.position - earthOrbit.orbitCenter.position);
+      float angle = Mathf.Atan2(flatOffset.z, flatOffset.x);
+      float angularSpeed = earthOrbit.orbitSpeed * Mathf.Deg2Rad;
+      Vector3 flatTangent = new Vector3(-Mathf.Sin(angle), 0f, Mathf.Cos(angle));
+      earthVelocity = inclination * flatTangent * (earthOrbit.orbitRadius * angularSpeed);
+    }
+
+    return earthVelocity + relativeTangent * circularSpeed;
   }
 
   // Restores the RocketLauncher-configured rotation constraint (normally
