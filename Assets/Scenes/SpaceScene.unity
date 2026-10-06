@@ -1314,6 +1314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EarthRelativeSpawnAnchor
   earth: {fileID: 0}
+  spawnSafetyMargin: 1
   offsetFromEarth: {x: 0, y: 0, z: 0}
 --- !u!21 &142422896
 Material:
@@ -14718,7 +14719,7 @@ MonoBehaviour:
   rocket: {fileID: 0}
   earth: {fileID: 0}
   spawnPoint: {fileID: 0}
-  establishDuration: 3
+  establishDuration: 0
   establishRadialRadii: 3
   establishSideRadii: 0.6
   establishBackRadii: 0.8

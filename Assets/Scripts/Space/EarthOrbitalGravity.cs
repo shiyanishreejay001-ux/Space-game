@@ -107,7 +107,17 @@ public class EarthOrbitalGravity : MonoBehaviour
         // mass, so ForceMode.Acceleration (which ignores Rigidbody.mass) is
         // used rather than ForceMode.Force.
         float accel = gravitationalParameter / (distance * distance);
-        shipRigidbody.AddForce(toEarth.normalized * accel, ForceMode.Acceleration);
+        Vector3 earthGravityAcceleration = toEarth.normalized * accel;
+
+        Vector3 earthOrbitalAcceleration = Vector3.zero;
+        if (earthOrbit != null && earthOrbit.orbitEnabled && earthOrbit.orbitCenter != null)
+        {
+            float angularSpeed = earthOrbit.orbitSpeed * Mathf.Deg2Rad;
+            Vector3 earthFromOrbitCenter = earth.position - earthOrbit.orbitCenter.position;
+            earthOrbitalAcceleration = -earthFromOrbitCenter * (angularSpeed * angularSpeed);
+        }
+
+        shipRigidbody.AddForce(earthGravityAcceleration + earthOrbitalAcceleration, ForceMode.Acceleration);
 
         UpdateOrbitalElements(distance);
     }
