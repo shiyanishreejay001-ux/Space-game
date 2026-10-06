@@ -60,6 +60,25 @@ public class PlanetOrbit : MonoBehaviour
     }
 
     /// <summary>
+    /// Returns the analytic world-space velocity along this scripted orbit.
+    /// The angle is derived from the current transform so velocity matches
+    /// the position currently applied by this component.
+    /// </summary>
+    public Vector3 GetOrbitalVelocity()
+    {
+        if (!orbitEnabled || orbitCenter == null)
+            return Vector3.zero;
+
+        Quaternion inclination = Quaternion.Euler(orbitInclination, 0f, 0f);
+        Vector3 flatOffset = Quaternion.Inverse(inclination) * (transform.position - orbitCenter.position);
+        float angle = Mathf.Atan2(flatOffset.z, flatOffset.x);
+        float angularSpeed = orbitSpeed * Mathf.Deg2Rad;
+        Vector3 flatTangent = new Vector3(-Mathf.Sin(angle), 0f, Mathf.Cos(angle));
+
+        return inclination * flatTangent * (orbitRadius * angularSpeed);
+    }
+
+    /// <summary>
     /// Sets the current orbit angle so the planet's initial world position
     /// matches an already-placed transform (used during scene setup).
     /// </summary>

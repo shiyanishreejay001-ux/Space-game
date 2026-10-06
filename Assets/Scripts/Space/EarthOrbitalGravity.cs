@@ -57,12 +57,10 @@ public class EarthOrbitalGravity : MonoBehaviour
     [Header("Ship (optional - auto-found if left empty)")]
     [SerializeField] private Rigidbody shipRigidbody;
 
-    // Earth's own velocity, estimated each FixedUpdate from its position
-    // delta (PlanetOrbit moves Earth via Transform, not a Rigidbody, so
-    // there is no rb.linearVelocity to read directly for it).
-    private Vector3 previousEarthPosition;
+    private PlanetOrbit earthOrbit;
     private Vector3 earthVelocity;
-    private bool havePreviousEarthPosition;
+    private bool hasLoggedInitialOrbitalState;
+    private bool? previousIsBoundOrbit;
 
     // ---- Read-only orbital telemetry, relative to Earth (see class comment) ----
     public bool HasOrbitData { get; private set; }
@@ -77,20 +75,18 @@ public class EarthOrbitalGravity : MonoBehaviour
             GameObject earthObj = GameObject.Find("Earth");
             if (earthObj != null) earth = earthObj.transform;
         }
+
+        if (earth != null)
+            earthOrbit = earth.GetComponent<PlanetOrbit>();
     }
 
     private void FixedUpdate()
     {
         if (earth == null) return;
 
-        // Estimate Earth's current velocity from its own motion (see class
-        // comment - PlanetOrbit is Transform-based, not Rigidbody-based).
-        if (havePreviousEarthPosition && Time.fixedDeltaTime > 0f)
-        {
-            earthVelocity = (earth.position - previousEarthPosition) / Time.fixedDeltaTime;
-        }
-        previousEarthPosition = earth.position;
-        havePreviousEarthPosition = true;
+        // Use the same analytic orbit velocity as the SpaceRocketManager
+        // handoff, avoiding a frame-rate-dependent finite-difference sample.
+        earthVelocity = earthOrbit != null ? earthOrbit.GetOrbitalVelocity() : Vector3.zero;
 
         if (shipRigidbody == null)
         {
@@ -146,6 +142,7 @@ public class EarthOrbitalGravity : MonoBehaviour
             IsBoundOrbit = false;
             Apoapsis = float.PositiveInfinity;
             Periapsis = r;
+            LogOrbitalStateChanges(r, rVec, vVec, specificEnergy);
             return;
         }
 
@@ -161,5 +158,27 @@ public class EarthOrbitalGravity : MonoBehaviour
         // number.
         Periapsis = semiMajorAxis * (1f - e);
         Apoapsis = IsBoundOrbit ? semiMajorAxis * (1f + e) : float.PositiveInfinity;
+
+        LogOrbitalStateChanges(r, rVec, vVec, specificEnergy);
+    }
+
+    private void LogOrbitalStateChanges(float distance, Vector3 relativePosition, Vector3 relativeVelocity, float specificEnergy)
+    {
+        Vector3 shipPosition = shipRigidbody.position;
+        Vector3 earthPosition = earth.position;
+        Vector3 shipWorldVelocity = shipRigidbody.linearVelocity;
+        float relativeSpeed = relativeVelocity.magnitude;
+
+        if (!hasLoggedInitialOrbitalState)
+        {
+            Debug.Log($"[EarthOrbitalGravity] INITIAL orbital state | Time={Time.time:F6} | FixedTime={Time.fixedTime:F6} | ShipPosition={shipPosition:F6} | ShipWorldVelocity={shipWorldVelocity:F6} | EarthPosition={earthPosition:F6} | EarthOrbitalVelocity={earthVelocity:F6} | EarthRelativeVelocity={relativeVelocity:F6} | RelativeSpeed={relativeSpeed:F6} | Distance={distance:F6} | Mu={gravitationalParameter:F6} | SpecificEnergy={specificEnergy:F6} | IsBoundOrbit={IsBoundOrbit}");
+            hasLoggedInitialOrbitalState = true;
+        }
+        else if (previousIsBoundOrbit == true && !IsBoundOrbit)
+        {
+            Debug.Log($"[EarthOrbitalGravity] IsBoundOrbit TRUE->FALSE | Time={Time.time:F6} | FixedTime={Time.fixedTime:F6} | PreviousIsBoundOrbit={previousIsBoundOrbit.Value} | ShipPosition={shipPosition:F6} | EarthPosition={earthPosition:F6} | Distance={distance:F6} | ShipWorldVelocity={shipWorldVelocity:F6} | EarthOrbitalVelocity={earthVelocity:F6} | EarthRelativeVelocity={relativeVelocity:F6} | RelativeSpeed={relativeSpeed:F6} | Mu={gravitationalParameter:F6} | SpecificEnergy={specificEnergy:F6} | IsBoundOrbit={IsBoundOrbit}");
+        }
+
+        previousIsBoundOrbit = IsBoundOrbit;
     }
 }

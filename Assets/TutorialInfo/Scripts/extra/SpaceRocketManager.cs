@@ -63,6 +63,14 @@ public class SpaceRocketManager : MonoBehaviour
 
     if (spawnPoint != null)
     {
+      // The persistent ship can carry an active block sequence across the
+      // scene load. Stop it before this handoff resets position and velocity.
+      ShipBlockRunner blockRunner = GetComponent<ShipBlockRunner>();
+      if (blockRunner != null && blockRunner.IsRunning)
+      {
+        blockRunner.CancelSequence();
+      }
+
       // Scale first so the spawn anchor measures the rocket's final
       // SpaceScene collider size when it calculates surface clearance.
       transform.localScale = gameplayScale * spaceSceneScaleFactor;
@@ -171,15 +179,8 @@ public class SpaceRocketManager : MonoBehaviour
     float circularSpeed = Mathf.Sqrt(gravitationalParameter / orbitalDistance);
     Vector3 earthVelocity = Vector3.zero;
     PlanetOrbit earthOrbit = earthObject.GetComponent<PlanetOrbit>();
-    if (earthOrbit != null && earthOrbit.orbitEnabled && earthOrbit.orbitCenter != null)
-    {
-      Quaternion inclination = Quaternion.Euler(earthOrbit.orbitInclination, 0f, 0f);
-      Vector3 flatOffset = Quaternion.Inverse(inclination) * (earth.position - earthOrbit.orbitCenter.position);
-      float angle = Mathf.Atan2(flatOffset.z, flatOffset.x);
-      float angularSpeed = earthOrbit.orbitSpeed * Mathf.Deg2Rad;
-      Vector3 flatTangent = new Vector3(-Mathf.Sin(angle), 0f, Mathf.Cos(angle));
-      earthVelocity = inclination * flatTangent * (earthOrbit.orbitRadius * angularSpeed);
-    }
+    if (earthOrbit != null)
+      earthVelocity = earthOrbit.GetOrbitalVelocity();
 
     return earthVelocity + relativeTangent * circularSpeed;
   }
