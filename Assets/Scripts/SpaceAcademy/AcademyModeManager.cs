@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Manages switching between Challenge Mode and Experiment Lab in Space Academy.
+/// Manages switching between Challenge Mode, Experiment Lab and Gravity Lab in Space Academy.
 /// Preserves the existing challenge state and scoring while enabling free experimentation.
 /// </summary>
 public class AcademyModeManager : MonoBehaviour
@@ -27,6 +27,13 @@ public class AcademyModeManager : MonoBehaviour
     [SerializeField] private ExperimentModeController experimentController;
     [SerializeField] private SpaceAcademyController spaceAcademyController;
 
+    [Header("Gravity Lab")]
+    [SerializeField] private Button gravityTabButton;
+    [SerializeField] private Image gravityTabBackground;
+    [SerializeField] private TextMeshProUGUI gravityTabText;
+    [SerializeField] private GameObject gravityModeContainer;
+    [SerializeField] private GravityLabController gravityController;
+
     [Header("Tab Colors")]
     [SerializeField] private Color activeTabColor = new Color(0.2f, 0.6f, 0.9f, 0.95f);
     [SerializeField] private Color inactiveTabColor = new Color(0.08f, 0.12f, 0.2f, 0.7f);
@@ -36,7 +43,8 @@ public class AcademyModeManager : MonoBehaviour
     public enum AcademyMode
     {
         Challenge,
-        Experiment
+        Experiment,
+        Gravity
     }
 
     private AcademyMode currentMode = AcademyMode.Challenge;
@@ -52,6 +60,11 @@ public class AcademyModeManager : MonoBehaviour
         if (experimentTabButton != null)
         {
             experimentTabButton.onClick.AddListener(SwitchToExperimentMode);
+        }
+
+        if (gravityTabButton != null)
+        {
+            gravityTabButton.onClick.AddListener(SwitchToGravityMode);
         }
 
         // Start in Challenge Mode by default
@@ -77,8 +90,11 @@ public class AcademyModeManager : MonoBehaviour
             experimentModeContainer.SetActive(false);
         }
 
+        HideGravityMode();
+
         // Update tab styling
         UpdateTabVisuals(true);
+        UpdateGravityTabVisuals(false);
 
         // Reset visualization for challenge mode
         if (rocketVisualization != null)
@@ -106,8 +122,11 @@ public class AcademyModeManager : MonoBehaviour
             experimentModeContainer.SetActive(true);
         }
 
+        HideGravityMode();
+
         // Update tab styling
         UpdateTabVisuals(false);
+        UpdateGravityTabVisuals(false);
 
         // Reset visualization and update experiment preview
         if (rocketVisualization != null)
@@ -118,6 +137,72 @@ public class AcademyModeManager : MonoBehaviour
         if (experimentController != null)
         {
             experimentController.UpdateDisplay();
+        }
+    }
+
+    /// <summary>
+    /// Shows the Gravity Lab (W = m × g with a crate lift) and hides the other modes' panels.
+    /// </summary>
+    public void SwitchToGravityMode()
+    {
+        currentMode = AcademyMode.Gravity;
+
+        // Hide challenge panels
+        if (challengeModeObjects != null)
+        {
+            foreach (var go in challengeModeObjects)
+            {
+                if (go != null) go.SetActive(false);
+            }
+        }
+
+        // Hide experiment container
+        if (experimentModeContainer != null)
+        {
+            experimentModeContainer.SetActive(false);
+        }
+
+        // Show gravity lab
+        if (gravityModeContainer != null)
+        {
+            gravityModeContainer.SetActive(true);
+        }
+
+        // Both original tabs go inactive while the Gravity tab is active
+        SetTabStyle(challengeTabBackground, challengeTabText, false);
+        SetTabStyle(experimentTabBackground, experimentTabText, false);
+        UpdateGravityTabVisuals(true);
+
+        // Keep the rocket demo in a clean state for when the player returns to the other modes
+        if (rocketVisualization != null)
+        {
+            rocketVisualization.ResetVisualization();
+        }
+    }
+
+    private void HideGravityMode()
+    {
+        if (gravityModeContainer != null)
+        {
+            gravityModeContainer.SetActive(false);
+        }
+    }
+
+    private void UpdateGravityTabVisuals(bool isActive)
+    {
+        SetTabStyle(gravityTabBackground, gravityTabText, isActive);
+    }
+
+    private void SetTabStyle(Image background, TextMeshProUGUI text, bool isActive)
+    {
+        if (background != null)
+        {
+            background.color = isActive ? activeTabColor : inactiveTabColor;
+        }
+
+        if (text != null)
+        {
+            text.color = isActive ? activeTextColor : inactiveTextColor;
         }
     }
 
