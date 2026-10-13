@@ -2,36 +2,59 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Handles the four primary Main Menu navigation buttons (PLAY, MISSIONS, TUTORIAL, SETTINGS).
-/// Only wires destinations that already exist in the project. Buttons whose destination
-/// system does not exist yet are left visually/functionally prepared and simply log a notice.
+/// Handles the primary Main Menu navigation buttons (PLAY, MISSIONS, TUTORIAL, SPACE ACADEMY, SETTINGS).
 /// </summary>
 public class MainMenuNavigation : MonoBehaviour
 {
     private const string MissionSelectScene = "MissionSelect";
+    private const string SpaceAcademyScene = "SpaceAcademy";
+    private const string GameplayScene = "RocketLauncher";
 
-    /// <summary>MISSIONS button — the MissionSelect scene already exists and is in Build Settings.</summary>
+    [Header("PLAY")]
+    [Tooltip("Mission started by the PLAY button (Mission01 = FIRST FLIGHT).")]
+    [SerializeField] private MissionData firstMission;
+
+    [Header("Panels")]
+    [SerializeField] private MenuPanel settingsPanel;
+    [SerializeField] private MenuPanel tutorialPanel;
+
+    /// <summary>MISSIONS button.</summary>
     public void LoadMissionSelect()
     {
-        SceneManager.LoadScene(MissionSelectScene);
+        SceneTransition.Load(MissionSelectScene);
     }
 
-    /// <summary>PLAY button — no defined "first playable mission" flow exists yet (only mission
-    /// selection followed by an arbitrary chosen mission). Left unconnected rather than inventing one.</summary>
-    public void NotifyPlayNotConnected()
+    /// <summary>SPACE ACADEMY button.</summary>
+    public void LoadSpaceAcademy()
     {
-        Debug.Log("[MainMenu] PLAY pressed — no defined first-mission flow exists yet. Not connected.");
+        SceneTransition.Load(SpaceAcademyScene);
     }
 
-    /// <summary>TUTORIAL button — no tutorial scene/system exists yet.</summary>
-    public void NotifyTutorialNotConnected()
+    /// <summary>PLAY button — selects FIRST FLIGHT and jumps straight into the gameplay scene.</summary>
+    public void PlayFirstMission()
     {
-        Debug.Log("[MainMenu] TUTORIAL pressed — tutorial system does not exist yet. Not connected.");
+        if (firstMission == null)
+        {
+            Debug.LogWarning("[MainMenu] PLAY pressed but no first mission is assigned; opening mission select instead.");
+            LoadMissionSelect();
+            return;
+        }
+
+        MissionSelectManager.SelectedMission = firstMission;
+        SceneTransition.Load(GameplayScene);
     }
 
-    /// <summary>SETTINGS button — no settings scene/panel system exists yet.</summary>
-    public void NotifySettingsNotConnected()
+    /// <summary>TUTORIAL button — opens the How to Play panel.</summary>
+    public void OpenTutorial()
     {
-        Debug.Log("[MainMenu] SETTINGS pressed — settings system does not exist yet. Not connected.");
+        if (settingsPanel != null && settingsPanel.IsOpen) settingsPanel.Close();
+        if (tutorialPanel != null) tutorialPanel.Open();
+    }
+
+    /// <summary>SETTINGS button — opens the Settings panel.</summary>
+    public void OpenSettings()
+    {
+        if (tutorialPanel != null && tutorialPanel.IsOpen) tutorialPanel.Close();
+        if (settingsPanel != null) settingsPanel.Open();
     }
 }

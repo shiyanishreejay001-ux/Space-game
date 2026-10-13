@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// <summary>
 /// Lightweight hover/press polish for Main Menu buttons — subtle scale and
-/// brightness feedback only. No external animation packages, no long or
-/// distracting motion. Attach alongside an existing Button/Image.
+/// brightness feedback plus soft hover/click sounds. No external animation
+/// packages, no long or distracting motion. Attach alongside an existing Button/Image.
 /// </summary>
 [RequireComponent(typeof(RectTransform))]
 public class MainMenuButtonPolish : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
@@ -18,8 +19,12 @@ public class MainMenuButtonPolish : MonoBehaviour, IPointerEnterHandler, IPointe
     [Tooltip("Duration of the scale/brightness transition, in seconds.")]
     [SerializeField] private float transitionDuration = 0.12f;
 
+    [Tooltip("Play hover and click sounds (synthesized by UISound unless clips are assigned there).")]
+    [SerializeField] private bool playSounds = true;
+
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    private Selectable selectable;
     private Vector3 baseScale;
     private Coroutine activeRoutine;
     private bool isPointerDown;
@@ -28,6 +33,7 @@ public class MainMenuButtonPolish : MonoBehaviour, IPointerEnterHandler, IPointe
     {
         rectTransform = GetComponent<RectTransform>();
         baseScale = rectTransform.localScale;
+        selectable = GetComponent<Selectable>();
 
         // Used only for a very small brightness lift on hover; does not affect
         // interactability or raycast behavior.
@@ -43,8 +49,14 @@ public class MainMenuButtonPolish : MonoBehaviour, IPointerEnterHandler, IPointe
         }
     }
 
+    private bool CanPlaySound()
+    {
+        return playSounds && (selectable == null || selectable.IsInteractable());
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (CanPlaySound()) UISound.PlayHover();
         AnimateTo(hoverScale);
     }
 
@@ -57,6 +69,7 @@ public class MainMenuButtonPolish : MonoBehaviour, IPointerEnterHandler, IPointe
     public void OnPointerDown(PointerEventData eventData)
     {
         isPointerDown = true;
+        if (CanPlaySound()) UISound.PlayClick();
         AnimateTo(pressedScale);
     }
 

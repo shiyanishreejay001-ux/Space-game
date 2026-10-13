@@ -9,7 +9,7 @@ public class LaunchAltitudeTrigger : MonoBehaviour
   {
     if (other.CompareTag("Ship"))
     {
-      SceneManager.LoadScene(nextScene);
+      SceneTransition.Load(nextScene);
     }
   }
 }

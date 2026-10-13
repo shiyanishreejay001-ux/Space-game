@@ -104,6 +104,6 @@ public class MainMenuProgressUI : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene(GameplaySceneName);
+        SceneTransition.Load(GameplaySceneName);
     }
 }

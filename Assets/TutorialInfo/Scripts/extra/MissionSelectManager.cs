@@ -8,6 +8,6 @@ public class MissionSelectManager : MonoBehaviour
   public void StartMission(MissionData mission)
   {
     SelectedMission = mission;
-    SceneManager.LoadScene("RocketLauncher");
+    SceneTransition.Load("RocketLauncher");
   }
 }
