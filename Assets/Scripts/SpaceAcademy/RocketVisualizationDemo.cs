@@ -15,6 +15,8 @@ public class RocketVisualizationDemo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private TextMeshProUGUI thrustValueText;
     [SerializeField] private TextMeshProUGUI accelerationText;
+    [SerializeField] private TextMeshProUGUI massText;
+    [SerializeField] private RectTransform engineFlame;
 
     [Header("Animation Settings")]
     [SerializeField] private float demonstrationDuration = 2.5f;
@@ -30,6 +32,10 @@ public class RocketVisualizationDemo : MonoBehaviour
             rocketStartPosition = rocketModel.transform.localPosition;
         }
 
+        if (engineFlame == null)
+            engineFlame = transform.Find("AnimatedRocket/EngineFlame") as RectTransform;
+        if (engineFlame != null) engineFlame.gameObject.SetActive(false);
+
         SetAwaitingState();
     }
 
@@ -39,9 +45,13 @@ public class RocketVisualizationDemo : MonoBehaviour
     /// </summary>
     public void DemonstrateCorrectCalculation(float force, float acceleration)
     {
-        if (isDemonstrating) return;
+        DemonstrateCorrectCalculation(10f, force, acceleration);
+    }
 
-        StartCoroutine(RunDemonstration(force, acceleration));
+    public void DemonstrateCorrectCalculation(float mass, float force, float acceleration)
+    {
+        if (isDemonstrating) return;
+        StartCoroutine(RunDemonstration(mass, force, acceleration));
     }
 
     /// <summary>
@@ -52,6 +62,11 @@ public class RocketVisualizationDemo : MonoBehaviour
     {
         // Keep rocket stationary - no response to incorrect calculation
         SetAwaitingState();
+        if (statusText != null)
+        {
+            statusText.text = "RECHECK MASS × ACCELERATION";
+            statusText.color = new Color(0.78f, 0.66f, 0.48f, 0.95f);
+        }
     }
 
     /// <summary>
@@ -60,12 +75,17 @@ public class RocketVisualizationDemo : MonoBehaviour
     /// </summary>
     public void UpdateExperimentPreview(float force, float acceleration)
     {
+        UpdateExperimentPreview(10f, force, acceleration);
+    }
+
+    public void UpdateExperimentPreview(float mass, float force, float acceleration)
+    {
         if (isDemonstrating) return;
 
         // Update display text to show current experimental values
         if (thrustValueText != null)
         {
-            thrustValueText.text = $"THRUST: {force:F0} N";
+            thrustValueText.text = $"FORCE: {force:F0} N";
             thrustValueText.color = new Color(0.4f, 0.85f, 1f, 0.8f);
         }
 
@@ -73,6 +93,12 @@ public class RocketVisualizationDemo : MonoBehaviour
         {
             accelerationText.text = $"ACCEL: {acceleration:F1} m/s²";
             accelerationText.color = new Color(1f, 0.7f, 0.3f, 0.8f);
+        }
+
+        if (massText != null)
+        {
+            massText.text = $"MASS: {mass:F0} kg";
+            massText.color = new Color(0.78f, 0.78f, 0.72f, 0.9f);
         }
 
         if (statusText != null)
@@ -95,9 +121,13 @@ public class RocketVisualizationDemo : MonoBehaviour
     /// </summary>
     public void RunExperiment(float force, float acceleration)
     {
-        if (isDemonstrating) return;
+        RunExperiment(10f, force, acceleration);
+    }
 
-        StartCoroutine(RunExperimentDemonstration(force, acceleration));
+    public void RunExperiment(float mass, float force, float acceleration)
+    {
+        if (isDemonstrating) return;
+        StartCoroutine(RunExperimentDemonstration(mass, force, acceleration));
     }
 
     /// <summary>
@@ -118,6 +148,8 @@ public class RocketVisualizationDemo : MonoBehaviour
             thrustEffect.Stop();
         }
 
+        if (engineFlame != null) engineFlame.gameObject.SetActive(false);
+
         SetAwaitingState();
     }
 
@@ -125,24 +157,30 @@ public class RocketVisualizationDemo : MonoBehaviour
     {
         if (statusText != null)
         {
-            statusText.text = "AWAITING CALCULATION";
+            statusText.text = "CALCULATE TO LAUNCH";
             statusText.color = new Color(0.5f, 0.7f, 0.85f, 0.7f);
         }
 
         if (thrustValueText != null)
         {
-            thrustValueText.text = "THRUST: ---";
+            thrustValueText.text = "FORCE: --- N";
             thrustValueText.color = new Color(0.6f, 0.6f, 0.6f, 0.7f);
         }
 
         if (accelerationText != null)
         {
-            accelerationText.text = "ACCEL: ---";
+            accelerationText.text = "ACCEL: --- m/s²";
             accelerationText.color = new Color(0.6f, 0.6f, 0.6f, 0.7f);
+        }
+
+        if (massText != null)
+        {
+            massText.text = "MASS: --- kg";
+            massText.color = new Color(0.6f, 0.6f, 0.6f, 0.7f);
         }
     }
 
-    private IEnumerator RunDemonstration(float force, float acceleration)
+    private IEnumerator RunDemonstration(float mass, float force, float acceleration)
     {
         isDemonstrating = true;
 
@@ -155,7 +193,7 @@ public class RocketVisualizationDemo : MonoBehaviour
 
         if (thrustValueText != null)
         {
-            thrustValueText.text = $"THRUST: {force:F0} N";
+            thrustValueText.text = $"FORCE: {force:F0} N";
             thrustValueText.color = new Color(0.4f, 0.85f, 1f, 1f);
         }
 
@@ -164,18 +202,22 @@ public class RocketVisualizationDemo : MonoBehaviour
             accelerationText.text = $"ACCEL: {acceleration:F1} m/s²";
             accelerationText.color = new Color(1f, 0.7f, 0.3f, 1f);
         }
+        if (massText != null) massText.text = $"MASS: {mass:F0} kg";
 
         // Start thrust effect
         if (thrustEffect != null)
         {
             thrustEffect.Play();
         }
+        SetEngineFlame(true, force, 0f);
 
         yield return new WaitForSeconds(0.3f);
 
         // Phase 2: Animate rocket acceleration
         float elapsed = 0f;
-        Vector3 targetPosition = rocketStartPosition + Vector3.up * rocketTravelDistance;
+        float physicalAcceleration = mass > 0f ? force / mass : acceleration;
+        float distanceScale = Mathf.Clamp(physicalAcceleration / 3f, 0.25f, 1.55f);
+        Vector3 targetPosition = rocketStartPosition + Vector3.up * (rocketTravelDistance * distanceScale);
 
         while (elapsed < demonstrationDuration)
         {
@@ -189,6 +231,7 @@ public class RocketVisualizationDemo : MonoBehaviour
             {
                 rocketModel.transform.localPosition = Vector3.Lerp(rocketStartPosition, targetPosition, smoothT);
             }
+            SetEngineFlame(true, force, elapsed);
 
             yield return null;
         }
@@ -196,7 +239,7 @@ public class RocketVisualizationDemo : MonoBehaviour
         // Phase 3: Hold final position briefly
         if (statusText != null)
         {
-            statusText.text = "DEMONSTRATION COMPLETE";
+            statusText.text = $"RESULT · {physicalAcceleration:F1} m/s² ACCELERATION";
             statusText.color = new Color(0.3f, 0.8f, 1f, 1f);
         }
 
@@ -207,11 +250,12 @@ public class RocketVisualizationDemo : MonoBehaviour
         {
             thrustEffect.Stop();
         }
+        if (engineFlame != null) engineFlame.gameObject.SetActive(false);
 
         isDemonstrating = false;
     }
 
-    private IEnumerator RunExperimentDemonstration(float force, float acceleration)
+    private IEnumerator RunExperimentDemonstration(float mass, float force, float acceleration)
     {
         isDemonstrating = true;
 
@@ -232,7 +276,7 @@ public class RocketVisualizationDemo : MonoBehaviour
 
         if (thrustValueText != null)
         {
-            thrustValueText.text = $"THRUST: {force:F0} N";
+            thrustValueText.text = $"FORCE: {force:F0} N";
             thrustValueText.color = new Color(0.4f, 0.85f, 1f, 1f);
         }
 
@@ -241,6 +285,7 @@ public class RocketVisualizationDemo : MonoBehaviour
             accelerationText.text = $"ACCEL: {acceleration:F1} m/s²";
             accelerationText.color = new Color(1f, 0.7f, 0.3f, 1f);
         }
+        if (massText != null) massText.text = $"MASS: {mass:F0} kg";
 
         // Start thrust effect with intensity based on force
         if (thrustEffect != null)
@@ -249,12 +294,14 @@ public class RocketVisualizationDemo : MonoBehaviour
             main.startSize = Mathf.Lerp(0.3f, 1.2f, force / 200f);
             thrustEffect.Play();
         }
+        SetEngineFlame(true, force, 0f);
 
         yield return new WaitForSeconds(0.3f);
 
         // Animate rocket - travel distance scales with acceleration
         float elapsed = 0f;
-        float scaledDistance = Mathf.Lerp(1f, rocketTravelDistance, acceleration / 10f);
+        float physicalAcceleration = mass > 0f ? force / mass : acceleration;
+        float scaledDistance = rocketTravelDistance * Mathf.Clamp(physicalAcceleration / 3f, 0.25f, 1.55f);
         Vector3 targetPosition = rocketStartPosition + Vector3.up * scaledDistance;
 
         while (elapsed < demonstrationDuration)
@@ -269,6 +316,7 @@ public class RocketVisualizationDemo : MonoBehaviour
             {
                 rocketModel.transform.localPosition = Vector3.Lerp(rocketStartPosition, targetPosition, smoothT);
             }
+            SetEngineFlame(true, force, elapsed);
 
             yield return null;
         }
@@ -287,6 +335,7 @@ public class RocketVisualizationDemo : MonoBehaviour
         {
             thrustEffect.Stop();
         }
+        if (engineFlame != null) engineFlame.gameObject.SetActive(false);
 
         // Smoothly return to start position
         elapsed = 0f;
@@ -314,5 +363,17 @@ public class RocketVisualizationDemo : MonoBehaviour
         }
 
         isDemonstrating = false;
+    }
+
+    private void SetEngineFlame(bool visible, float force, float elapsed)
+    {
+        if (engineFlame == null) return;
+        engineFlame.gameObject.SetActive(visible);
+        if (!visible) return;
+
+        // A steady, small scale pulse reads as engine thrust without adding loose particles.
+        float forceScale = Mathf.Lerp(0.75f, 1.1f, Mathf.Clamp01(force / 100f));
+        float pulse = 0.92f + 0.08f * Mathf.Sin(elapsed * 10f);
+        engineFlame.localScale = new Vector3(1f, forceScale * pulse, 1f);
     }
 }
