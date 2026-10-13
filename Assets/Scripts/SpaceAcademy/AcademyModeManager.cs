@@ -33,6 +33,7 @@ public class AcademyModeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gravityTabText;
     [SerializeField] private GameObject gravityModeContainer;
     [SerializeField] private GravityLabController gravityController;
+    [SerializeField] private GameObject feedbackPanel;
 
     [Header("Tab Colors")]
     [SerializeField] private Color activeTabColor = new Color(0.2f, 0.6f, 0.9f, 0.95f);
@@ -74,6 +75,7 @@ public class AcademyModeManager : MonoBehaviour
     public void SwitchToChallengeMode()
     {
         currentMode = AcademyMode.Challenge;
+        HideChallengeFeedback();
 
         // Toggle challenge panels
         if (challengeModeObjects != null)
@@ -106,6 +108,7 @@ public class AcademyModeManager : MonoBehaviour
     public void SwitchToExperimentMode()
     {
         currentMode = AcademyMode.Experiment;
+        HideChallengeFeedback();
 
         // Hide challenge panels
         if (challengeModeObjects != null)
@@ -146,6 +149,7 @@ public class AcademyModeManager : MonoBehaviour
     public void SwitchToGravityMode()
     {
         currentMode = AcademyMode.Gravity;
+        HideChallengeFeedback();
 
         // Hide challenge panels
         if (challengeModeObjects != null)
@@ -186,6 +190,11 @@ public class AcademyModeManager : MonoBehaviour
         {
             gravityModeContainer.SetActive(false);
         }
+    }
+
+    private void HideChallengeFeedback()
+    {
+        if (feedbackPanel != null) feedbackPanel.SetActive(false);
     }
 
     private void UpdateGravityTabVisuals(bool isActive)

@@ -111,11 +111,12 @@ public class SpaceAcademyController : MonoBehaviour
         currentStreak++;
 
         // Show positive feedback
-        string feedbackMessage = "<b><color=#66BB6A>✓ CORRECT!</color></b>\n\n" +
-                                 "F = m × a\n" +
-                                 "F = 10 kg × 3 m/s²\n" +
-                                 "<b>F = 30 N</b>\n\n" +
-                                 $"<color=#FFA726>+{pointsAwarded} points</color>";
+        string feedbackMessage = "<b><color=#82B79D>GREAT WORK!</color></b>\n\n" +
+                                 "The engine pushes up with 30 N. The 10 kg rocket speeds up at 3 m/s², so it rises in the display.\n\n" +
+                                 "<b>F = mass × acceleration</b>\n" +
+                                 "F = 10 kg × 3 m/s² = <b>30 N</b>\n" +
+                                 "The upward push causes the rocket's motion.\n\n" +
+                                 $"<color=#D9B477>+{pointsAwarded} points</color>";
 
         ShowFeedback(feedbackMessage, new Color(0.4f, 0.9f, 0.5f, 1f));
 
@@ -125,13 +126,13 @@ public class SpaceAcademyController : MonoBehaviour
         // Update status
         if (statusTitleText != null)
         {
-            statusTitleText.text = "MISSION STATUS - <color=#66BB6A>SUCCESS</color>";
+            statusTitleText.text = "MISSION STATUS - <color=#82B79D>SUCCESS</color>";
         }
 
         // TRIGGER ROCKET VISUALIZATION
         if (rocketVisualization != null)
         {
-            rocketVisualization.DemonstrateCorrectCalculation(CORRECT_ANSWER, ACCELERATION);
+            rocketVisualization.DemonstrateCorrectCalculation(MASS, CORRECT_ANSWER, ACCELERATION);
         }
 
         // Disable input and submit button
@@ -145,10 +146,11 @@ public class SpaceAcademyController : MonoBehaviour
         // Don't punish - encourage trying again
         currentStreak = 0; // Reset streak on wrong answer
 
-        string feedbackMessage = "<b><color=#FF7043>Not quite. Try again!</color></b>\n\n" +
-                                 "<color=#90CAF9>Hint:</color> Force = mass × acceleration\n" +
-                                 "F = m × a\n\n" +
-                                 "Check your calculation and try again.";
+        string feedbackMessage = "<b><color=#CE8876>NOT QUITE — TRY AGAIN</color></b>\n\n" +
+                                 "Force tells how strongly the engine pushes the rocket. Multiply its mass by its acceleration to find that push.\n\n" +
+                                 "<b>F = mass × acceleration</b>\n" +
+                                 "F = 10 kg × 3 m/s² = <b>30 N</b>\n\n" +
+                                 "The rocket stays still for now. It will rise when you enter an answer close to 30 N. Try multiplying 10 by 3.";
 
         ShowFeedback(feedbackMessage, new Color(0.9f, 0.5f, 0.3f, 1f));
 
@@ -179,7 +181,7 @@ public class SpaceAcademyController : MonoBehaviour
 
         hintUsed = true;
 
-        string hintMessage = "<b><color=#FFA726>HINT ACTIVATED</color></b>\n\n" +
+        string hintMessage = "<b><color=#D9B477>HINT ACTIVATED</color></b>\n\n" +
                             "Use Newton's Second Law:\n" +
                             "<b>F = m × a</b>\n\n" +
                             "Given:\n" +
@@ -201,14 +203,29 @@ public class SpaceAcademyController : MonoBehaviour
     {
         if (feedbackText == null) return;
 
-        feedbackText.gameObject.SetActive(true);
         feedbackText.text = message;
 
+        Transform feedbackPanelTransform = feedbackText.transform.parent;
+        if (feedbackPanelTransform != null)
+        {
+            feedbackPanelTransform.gameObject.SetActive(true);
+        }
+        feedbackText.gameObject.SetActive(true);
+
         // Update background color of feedback panel if it has an Image component
-        var feedbackPanel = feedbackText.transform.parent?.GetComponent<Image>();
+        var feedbackPanel = feedbackPanelTransform != null ? feedbackPanelTransform.GetComponent<Image>() : null;
         if (feedbackPanel != null)
         {
-            feedbackPanel.color = backgroundColor;
+            bool success = message.IndexOf("CORRECT", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                            message.IndexOf("GREAT WORK", StringComparison.OrdinalIgnoreCase) >= 0;
+            bool hint = message.IndexOf("HINT", StringComparison.OrdinalIgnoreCase) >= 0;
+            feedbackPanel.color = success
+                ? new Color(0.12f, 0.21f, 0.19f, 0.98f)
+                : hint ? new Color(0.22f, 0.19f, 0.13f, 0.98f)
+                       : new Color(0.22f, 0.16f, 0.15f, 0.98f);
+            feedbackText.color = success ? new Color(0.68f, 0.83f, 0.74f, 1f)
+                : hint ? new Color(0.86f, 0.74f, 0.52f, 1f)
+                       : new Color(0.85f, 0.66f, 0.58f, 1f);
         }
     }
 
@@ -216,7 +233,7 @@ public class SpaceAcademyController : MonoBehaviour
     {
         if (progressInfoText == null) return;
 
-        string status = challengeCompleted ? "<color=#66BB6A>Complete</color>" : "<color=#90CAF9>In Progress</color>";
+        string status = challengeCompleted ? "<color=#82B79D>Complete</color>" : "<color=#9CC4CC>In Progress</color>";
 
         progressInfoText.text = $"<b>Problem:</b> 1 of 1\n\n" +
                                $"<b>Score:</b> {currentScore} pts\n\n" +

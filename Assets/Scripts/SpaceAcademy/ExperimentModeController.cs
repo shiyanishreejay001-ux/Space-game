@@ -21,6 +21,7 @@ public class ExperimentModeController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI formulaDisplayText;
     [SerializeField] private TextMeshProUGUI forceResultText;
     [SerializeField] private TextMeshProUGUI experimentStatusText;
+    [SerializeField] private TextMeshProUGUI relationshipText;
 
     [Header("Visualization")]
     [SerializeField] private RocketVisualizationDemo rocketVisualization;
@@ -34,9 +35,13 @@ public class ExperimentModeController : MonoBehaviour
     private float currentMass = 10f;
     private float currentAcceleration = 3f;
     private float currentForce = 30f;
+    private const float ReferenceMass = 10f;
+    private const float ReferenceAcceleration = 3f;
 
     private void Start()
     {
+        if (relationshipText == null)
+            relationshipText = transform.Find("EducationalNote")?.GetComponent<TextMeshProUGUI>();
         SetupSliders();
         SetupButton();
         UpdateDisplay();
@@ -45,6 +50,13 @@ public class ExperimentModeController : MonoBehaviour
     private void OnEnable()
     {
         UpdateDisplay();
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke(nameof(ShowExperimentCompleteStatus));
+        CancelInvoke(nameof(HideExperimentStatus));
+        if (experimentStatusText != null) experimentStatusText.gameObject.SetActive(false);
     }
 
     private void SetupSliders()
@@ -131,8 +143,27 @@ public class ExperimentModeController : MonoBehaviour
         // Update rocket visualization preview with new values
         if (rocketVisualization != null)
         {
-            rocketVisualization.UpdateExperimentPreview(currentForce, currentAcceleration);
+            rocketVisualization.UpdateExperimentPreview(currentMass, currentForce, currentAcceleration);
         }
+
+        UpdateRelationshipExplanation();
+    }
+
+    private void UpdateRelationshipExplanation()
+    {
+        if (relationshipText == null) return;
+
+        string cause;
+        if (Mathf.Approximately(currentMass, ReferenceMass) && Mathf.Approximately(currentAcceleration, ReferenceAcceleration))
+            cause = "Change mass or acceleration and watch the required force change.";
+        else if (Mathf.Approximately(currentAcceleration, ReferenceAcceleration))
+            cause = $"At {currentAcceleration:0} m/s², changing mass from {ReferenceMass:0} kg to {currentMass:0} kg changes force from {ReferenceMass * currentAcceleration:0} N to {currentForce:0} N.";
+        else if (Mathf.Approximately(currentMass, ReferenceMass))
+            cause = $"With {currentMass:0} kg, changing acceleration from {ReferenceAcceleration:0} to {currentAcceleration:0} m/s² changes force from {currentMass * ReferenceAcceleration:0} N to {currentForce:0} N.";
+        else
+            cause = $"Mass and acceleration multiply: {currentMass:0} kg × {currentAcceleration:0} m/s² needs {currentForce:0} N of force.";
+
+        relationshipText.text = cause;
     }
 
     private void OnRunExperiment()
@@ -140,18 +171,25 @@ public class ExperimentModeController : MonoBehaviour
         // Run the rocket demonstration with current experimental values
         if (rocketVisualization != null)
         {
-            rocketVisualization.RunExperiment(currentForce, currentAcceleration);
+            rocketVisualization.RunExperiment(currentMass, currentForce, currentAcceleration);
         }
 
         // Show positive feedback
         if (experimentStatusText != null)
         {
             experimentStatusText.gameObject.SetActive(true);
-            experimentStatusText.text = "<color=#66BB6A>EXPERIMENT COMPLETE</color>";
-            
-            // Hide status after a delay
-            Invoke(nameof(HideExperimentStatus), 2f);
+            experimentStatusText.text = "<color=#82B79D>EXPERIMENT RUNNING</color>";
+            CancelInvoke(nameof(ShowExperimentCompleteStatus));
+            CancelInvoke(nameof(HideExperimentStatus));
+            Invoke(nameof(ShowExperimentCompleteStatus), 3f);
+            Invoke(nameof(HideExperimentStatus), 5.2f);
         }
+    }
+
+    private void ShowExperimentCompleteStatus()
+    {
+        if (experimentStatusText != null && experimentStatusText.gameObject.activeSelf)
+            experimentStatusText.text = "<color=#82B79D>EXPERIMENT COMPLETE</color>";
     }
 
     private void HideExperimentStatus()
@@ -167,6 +205,10 @@ public class ExperimentModeController : MonoBehaviour
     /// </summary>
     public void ResetExperiment()
     {
+        CancelInvoke(nameof(ShowExperimentCompleteStatus));
+        CancelInvoke(nameof(HideExperimentStatus));
+        if (experimentStatusText != null) experimentStatusText.gameObject.SetActive(false);
+
         currentMass = 10f;
         currentAcceleration = 3f;
 
@@ -179,7 +221,7 @@ public class ExperimentModeController : MonoBehaviour
         if (rocketVisualization != null)
         {
             rocketVisualization.ResetVisualization();
-            rocketVisualization.UpdateExperimentPreview(currentForce, currentAcceleration);
+            rocketVisualization.UpdateExperimentPreview(currentMass, currentForce, currentAcceleration);
         }
     }
 }
