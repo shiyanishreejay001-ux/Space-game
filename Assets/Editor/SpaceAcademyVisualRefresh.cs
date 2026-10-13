@@ -25,8 +25,12 @@ public static class SpaceAcademyVisualRefresh
         var scene = EditorSceneManager.GetActiveScene();
         if (scene.name != "SpaceAcademy")
         {
-            Debug.LogError("Open SpaceAcademy before applying its visual refresh.");
-            return;
+            scene = EditorSceneManager.OpenScene("Assets/Scenes/SpaceAcademy.unity", OpenSceneMode.Single);
+            if (!scene.IsValid() || scene.name != "SpaceAcademy")
+            {
+                Debug.LogError("Could not open Assets/Scenes/SpaceAcademy.unity.");
+                return;
+            }
         }
 
         var canvas = Object.FindFirstObjectByType<Canvas>();

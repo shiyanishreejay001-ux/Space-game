@@ -32,6 +32,8 @@ public class SpaceAcademyController : MonoBehaviour
     private bool challengeCompleted = false;
     private bool hintUsed = false;
 
+    public bool ChallengeCompleted => challengeCompleted;
+
     private void Start()
     {
         // Wire up button events
@@ -63,6 +65,12 @@ public class SpaceAcademyController : MonoBehaviour
 
     private void OnSubmitClicked()
     {
+        if (challengeCompleted)
+        {
+            RestoreCompletedState();
+            return;
+        }
+
         if (answerInputField == null || string.IsNullOrWhiteSpace(answerInputField.text))
         {
             ShowFeedback("Please enter an answer first.", new Color(0.9f, 0.7f, 0.2f, 1f));
@@ -89,6 +97,8 @@ public class SpaceAcademyController : MonoBehaviour
 
     private void CheckAnswer(float answer)
     {
+        if (challengeCompleted) return;
+
         bool isCorrect = Mathf.Abs(answer - CORRECT_ANSWER) <= TOLERANCE;
 
         if (isCorrect)
@@ -103,6 +113,12 @@ public class SpaceAcademyController : MonoBehaviour
 
     private void HandleCorrectAnswer()
     {
+        if (challengeCompleted)
+        {
+            RestoreCompletedState();
+            return;
+        }
+
         challengeCompleted = true;
 
         // Award points - more if no hint was used
@@ -111,14 +127,7 @@ public class SpaceAcademyController : MonoBehaviour
         currentStreak++;
 
         // Show positive feedback
-        string feedbackMessage = "<b><color=#82B79D>GREAT WORK!</color></b>\n\n" +
-                                 "The engine pushes up with 30 N. The 10 kg rocket speeds up at 3 m/s², so it rises in the display.\n\n" +
-                                 "<b>F = mass × acceleration</b>\n" +
-                                 "F = 10 kg × 3 m/s² = <b>30 N</b>\n" +
-                                 "The upward push causes the rocket's motion.\n\n" +
-                                 $"<color=#D9B477>+{pointsAwarded} points</color>";
-
-        ShowFeedback(feedbackMessage, new Color(0.4f, 0.9f, 0.5f, 1f));
+        ShowFeedback(BuildCompletedFeedback(pointsAwarded), new Color(0.4f, 0.9f, 0.5f, 1f));
 
         // Update progress
         UpdateProgressDisplay();
@@ -147,10 +156,9 @@ public class SpaceAcademyController : MonoBehaviour
         currentStreak = 0; // Reset streak on wrong answer
 
         string feedbackMessage = "<b><color=#CE8876>NOT QUITE — TRY AGAIN</color></b>\n\n" +
-                                 "Force tells how strongly the engine pushes the rocket. Multiply its mass by its acceleration to find that push.\n\n" +
-                                 "<b>F = mass × acceleration</b>\n" +
-                                 "F = 10 kg × 3 m/s² = <b>30 N</b>\n\n" +
-                                 "The rocket stays still for now. It will rise when you enter an answer close to 30 N. Try multiplying 10 by 3.";
+                                 "Use <b>F = m × a</b>:\n" +
+                                 "10 kg × 3 m/s² = <b>30 N</b>\n\n" +
+                                 "Enter a value within 0.1 N of 30 N.";
 
         ShowFeedback(feedbackMessage, new Color(0.9f, 0.5f, 0.3f, 1f));
 
@@ -175,7 +183,7 @@ public class SpaceAcademyController : MonoBehaviour
     {
         if (challengeCompleted)
         {
-            ShowFeedback("Challenge already completed!", new Color(0.5f, 0.7f, 0.9f, 1f));
+            RestoreCompletedState();
             return;
         }
 
@@ -183,11 +191,9 @@ public class SpaceAcademyController : MonoBehaviour
 
         string hintMessage = "<b><color=#D9B477>HINT ACTIVATED</color></b>\n\n" +
                             "Use Newton's Second Law:\n" +
-                            "<b>F = m × a</b>\n\n" +
-                            "Given:\n" +
-                            "• m = 10 kg\n" +
-                            "• a = 3 m/s²\n\n" +
-                            "Multiply the values together!";
+                            "<b>F = m × a</b>\n" +
+                            "10 kg × 3 m/s² = ?\n\n" +
+                            "Multiply 10 × 3.";
 
         ShowFeedback(hintMessage, new Color(1f, 0.7f, 0.3f, 1f));
 
@@ -226,6 +232,14 @@ public class SpaceAcademyController : MonoBehaviour
             feedbackText.color = success ? new Color(0.68f, 0.83f, 0.74f, 1f)
                 : hint ? new Color(0.86f, 0.74f, 0.52f, 1f)
                        : new Color(0.85f, 0.66f, 0.58f, 1f);
+
+            var motion = feedbackPanelTransform.GetComponent<AcademyPanelMotion>();
+            if (motion != null)
+            {
+                Color accent = success ? new Color(0.51f, 0.72f, 0.62f, 1f)
+                    : new Color(0.85f, 0.70f, 0.47f, 1f);
+                motion.PlayFeedbackPulse(accent);
+            }
         }
     }
 
@@ -239,6 +253,39 @@ public class SpaceAcademyController : MonoBehaviour
                                $"<b>Score:</b> {currentScore} pts\n\n" +
                                $"<b>Streak:</b> {currentStreak}\n\n" +
                                $"<b>Status:</b> {status}";
+    }
+
+    public void RestoreCompletedState()
+    {
+        if (!challengeCompleted) return;
+
+        int pointsAwarded = hintUsed ? 5 : 10;
+        ShowFeedback(BuildCompletedFeedback(pointsAwarded), new Color(0.4f, 0.9f, 0.5f, 1f));
+
+        if (statusTitleText != null)
+        {
+            statusTitleText.text = "MISSION STATUS - <color=#82B79D>SUCCESS</color>";
+        }
+
+        if (answerInputField != null) answerInputField.interactable = false;
+        if (submitButton != null) submitButton.interactable = false;
+        if (hintButton != null) hintButton.interactable = false;
+
+        if (rocketVisualization != null)
+        {
+            rocketVisualization.RestoreCompletedState(MASS, CORRECT_ANSWER, ACCELERATION);
+        }
+
+        UpdateProgressDisplay();
+    }
+
+    private string BuildCompletedFeedback(int pointsAwarded)
+    {
+        return "<b><color=#82B79D>GREAT WORK!</color></b>\n\n" +
+               "<b>F = m × a</b>\n" +
+               "10 kg × 3 m/s² = <b>30 N</b>\n\n" +
+               "The 30 N thrust accelerates the rocket upward.\n\n" +
+               $"<color=#D9B477>+{pointsAwarded} points</color>";
     }
 
     private void Update()

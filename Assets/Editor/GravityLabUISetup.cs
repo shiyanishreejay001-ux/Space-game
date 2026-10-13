@@ -12,8 +12,12 @@ public static class GravityLabUISetup
         var scene = EditorSceneManager.GetActiveScene();
         if (scene.name != "SpaceAcademy")
         {
-            Debug.LogError("Active scene is not SpaceAcademy!");
-            return;
+            scene = EditorSceneManager.OpenScene("Assets/Scenes/SpaceAcademy.unity", OpenSceneMode.Single);
+            if (!scene.IsValid() || scene.name != "SpaceAcademy")
+            {
+                Debug.LogError("Could not open Assets/Scenes/SpaceAcademy.unity.");
+                return;
+            }
         }
 
         Canvas canvas = Object.FindFirstObjectByType<Canvas>();
@@ -28,8 +32,13 @@ public static class GravityLabUISetup
         Material mat = AssetDatabase.LoadAssetAtPath<Material>("Assets/UI/fonts/Orbitron Bold SDF.asset");
         Transform header = canvas.transform.Find("HeaderPanel");
         Transform tabBar = header != null ? header.Find("ModeTabBar") : null;
-        Transform oldLab = canvas.transform.Find("GravityLabPanel");
-        if (oldLab != null) Object.DestroyImmediate(oldLab.gameObject);
+        // Rebuild only this generated panel.  Removing every direct duplicate keeps the
+        // command safe to run repeatedly without accumulating controllers or listeners.
+        for (int i = canvas.transform.childCount - 1; i >= 0; i--)
+        {
+            Transform child = canvas.transform.GetChild(i);
+            if (child.name == "GravityLabPanel") Object.DestroyImmediate(child.gameObject);
+        }
 
         if (tabBar == null)
         {
@@ -62,8 +71,10 @@ public static class GravityLabUISetup
 
         GravityLabController gravity = panel.AddComponent<GravityLabController>();
 
-        CreateText(panel.transform, "Title", "GRAVITY LAB", new Vector2(0f, -25f), new Vector2(-50f, 42f), 28, TextAlignmentOptions.Center, new Color(0.4f, 0.85f, 1f), font, mat);
-        CreateText(panel.transform, "Subtitle", "Calculate weight, then use it to lift the cargo crate", new Vector2(0f, -62f), new Vector2(-60f, 28f), 15, TextAlignmentOptions.Center, new Color(0.7f, 0.82f, 0.94f), font, mat);
+        // These are deliberately positive widths.  Negative widths make TMP wrap one
+        // character per line, which was the source of the broken vertical labels.
+        CreateText(panel.transform, "Title", "GRAVITY LAB", new Vector2(0f, -25f), new Vector2(1170f, 42f), 28, TextAlignmentOptions.Center, new Color(0.4f, 0.85f, 1f), font, mat);
+        CreateText(panel.transform, "Subtitle", "Calculate weight, then use it to lift the cargo crate", new Vector2(0f, -62f), new Vector2(1140f, 28f), 15, TextAlignmentOptions.Center, new Color(0.7f, 0.82f, 0.94f), font, mat);
 
         CreateText(panel.transform, "MassHeader", "CRATE MASS", new Vector2(-300f, -115f), new Vector2(230f, 28f), 15, TextAlignmentOptions.Left, Color.white, font, mat);
         TextMeshProUGUI massValue = CreateText(panel.transform, "MassValue", "10 kg", new Vector2(-30f, -115f), new Vector2(150f, 28f), 18, TextAlignmentOptions.Right, new Color(0.4f, 0.85f, 1f), font, mat);
@@ -92,8 +103,8 @@ public static class GravityLabUISetup
         calculation.GetComponent<Outline>().effectColor = new Color(0.24f, 0.52f, 0.78f, 0.55f);
         calculation.GetComponent<Outline>().effectDistance = new Vector2(1f, -1f);
 
-        CreateText(calculation.transform, "Formula", "W = m × g\nW = 10 kg × 9.81 m/s²", new Vector2(0f, -18f), new Vector2(-30f, 65f), 19, TextAlignmentOptions.Center, Color.white, font, mat);
-        TextMeshProUGUI weight = CreateText(calculation.transform, "WeightResult", "<b>WEIGHT = 98.1 N</b>", new Vector2(0f, -94f), new Vector2(-30f, 44f), 26, TextAlignmentOptions.Center, new Color(1f, 0.83f, 0.3f), font, mat);
+        CreateText(calculation.transform, "Formula", "W = m × g\nW = 10 kg × 9.81 m/s²", new Vector2(0f, -18f), new Vector2(540f, 65f), 19, TextAlignmentOptions.Center, Color.white, font, mat);
+        TextMeshProUGUI weight = CreateText(calculation.transform, "WeightResult", "<b>WEIGHT = 98.1 N</b>", new Vector2(0f, -94f), new Vector2(540f, 44f), 26, TextAlignmentOptions.Center, new Color(1f, 0.83f, 0.3f), font, mat);
 
         CreateText(panel.transform, "CrateLabel", "LIFT TEST", new Vector2(0f, -430f), new Vector2(300f, 30f), 17, TextAlignmentOptions.Center, new Color(0.55f, 0.82f, 1f), font, mat);
         GameObject platform = new GameObject("CratePlatform", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
@@ -138,6 +149,7 @@ public static class GravityLabUISetup
         gravitySerialized.FindProperty("marsButton").objectReferenceValue = mars.GetComponent<Button>();
         gravitySerialized.FindProperty("crate").objectReferenceValue = crate.transform;
         gravitySerialized.FindProperty("platform").objectReferenceValue = platform.transform;
+        gravitySerialized.FindProperty("maxLiftHeight").floatValue = 2.5f;
         gravitySerialized.ApplyModifiedProperties();
 
         AcademyModeManager manager = academy.GetComponent<AcademyModeManager>();

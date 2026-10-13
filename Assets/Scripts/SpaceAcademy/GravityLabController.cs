@@ -31,10 +31,15 @@ public class GravityLabController : MonoBehaviour
     [SerializeField] private float defaultGravity = 9.81f;
     [SerializeField] private float maxLiftWeight = 120f;
     [Tooltip("Maximum crate travel in UI units. The actual rise still scales with net upward acceleration.")]
-    [SerializeField] private float maxLiftHeight = 2.5f;
+    [SerializeField] private float maxLiftHeight = 5f;
     [SerializeField] private float liftDuration = 1.4f;
 
+    private const float BalanceEpsilon = 0.01f;
+    private const float UiPixelsPerLogicalUnit = 40f;
+    private const float LiftStageEdgePadding = 8f;
+
     private Vector3 crateStartPosition;
+    private Vector3 crateStartScale;
     private Coroutine liftRoutine;
     private bool hasCrateStartPosition;
 
@@ -42,6 +47,7 @@ public class GravityLabController : MonoBehaviour
     public float Gravity => gravitySlider != null ? gravitySlider.value : defaultGravity;
     public float Weight => Mass * Gravity;
     private float NetLiftForce => maxLiftWeight - Weight;
+    private float NetLiftAcceleration => NetLiftForce / Mathf.Max(Mass, 0.01f);
 
     private void Awake()
     {
@@ -72,6 +78,7 @@ public class GravityLabController : MonoBehaviour
         if (marsButton != null) marsButton.onClick.RemoveListener(SelectMars);
         if (liftRoutine != null) StopCoroutine(liftRoutine);
         liftRoutine = null;
+        ResetCrate();
     }
 
     private void CaptureCrateStartPosition()
@@ -79,15 +86,14 @@ public class GravityLabController : MonoBehaviour
         if (crate != null && !hasCrateStartPosition)
         {
             crateStartPosition = crate.localPosition;
+            crateStartScale = crate.localScale;
             hasCrateStartPosition = true;
         }
     }
 
     private void OnValueChanged(float _)
     {
-        if (liftRoutine != null) StopCoroutine(liftRoutine);
-        liftRoutine = null;
-        ResetCrate();
+        StopAndResetCrate();
         UpdateDisplay();
     }
 
@@ -97,6 +103,7 @@ public class GravityLabController : MonoBehaviour
 
     private void SetGravity(float value)
     {
+        StopAndResetCrate();
         if (gravitySlider != null) gravitySlider.value = value;
         else defaultGravity = value;
         UpdateDisplay();
@@ -113,12 +120,30 @@ public class GravityLabController : MonoBehaviour
         if (formulaDisplayText != null) formulaDisplayText.text = $"W = m × g\nW = {m:0.#} kg × {g:0.00} m/s²";
         if (weightResultText != null) weightResultText.text = $"<b>WEIGHT = {w:0.#} N</b>";
         if (liftStatusText != null)
-            liftStatusText.text = w < maxLiftWeight
-                ? $"<color=#82B79D>Lift available</color>\n{maxLiftWeight:0} N lift − {w:0.#} N weight = {NetLiftForce:0.#} N upward; crate can rise."
-                : Mathf.Approximately(w, maxLiftWeight)
-                    ? $"<color=#D9B477>Balanced</color>\n{w:0.#} N lift = {w:0.#} N weight; no net force, so it stays put."
-                    : $"<color=#CE8876>Too heavy</color>\n{w:0.#} N weight is {w - maxLiftWeight:0.#} N above the {maxLiftWeight:0} N lift."
-                      + " The crate stays put.";
+        {
+            float netForce = NetLiftForce;
+            float displayedNetForce = Mathf.Abs(netForce) <= BalanceEpsilon ? 0f : netForce;
+            float netAcceleration = Mathf.Abs(netForce) <= BalanceEpsilon ? 0f : NetLiftAcceleration;
+
+            if (netForce > BalanceEpsilon)
+            {
+                liftStatusText.text = $"<color=#82B79D>Lift available</color>\n" +
+                    $"Lift capacity: {maxLiftWeight:0} N | Weight: {w:0.#} N\n" +
+                    $"Net force: +{displayedNetForce:0.#} N -> {netAcceleration:0.##} m/s² up. Crate rises.";
+            }
+            else if (Mathf.Abs(netForce) <= BalanceEpsilon)
+            {
+                liftStatusText.text = $"<color=#D9B477>Balanced</color>\n" +
+                    $"Weight matches lift capacity: {w:0.#} N\n" +
+                    "Net force = 0 N, so acceleration = 0. Crate stays put.";
+            }
+            else
+            {
+                liftStatusText.text = $"<color=#CE8876>Insufficient lift</color>\n" +
+                    $"Weight {w:0.#} N exceeds lift: {maxLiftWeight:0} N\n" +
+                    $"Net force: {displayedNetForce:0.#} N -> {Mathf.Abs(netAcceleration):0.##} m/s² down. Crate stays put.";
+            }
+        }
     }
 
     private string GetWorldName(float g)
@@ -131,54 +156,92 @@ public class GravityLabController : MonoBehaviour
 
     public void LiftCrate()
     {
-        if (crate == null || Weight >= maxLiftWeight)
+        StopAndResetCrate();
+
+        if (crate == null || NetLiftForce <= BalanceEpsilon)
         {
             if (liftStatusText != null) UpdateDisplay();
             return;
         }
 
-        if (liftRoutine != null) StopCoroutine(liftRoutine);
         liftRoutine = StartCoroutine(AnimateCrateLift());
     }
 
     private System.Collections.IEnumerator AnimateCrateLift()
     {
-        Vector3 start = crate.localPosition;
-        float acceleration = NetLiftForce / Mathf.Max(Mass, 0.01f);
-        float height = maxLiftHeight * Mathf.Clamp01(acceleration / 12f);
-        Vector3 target = start + Vector3.up * height;
+        Vector3 start = hasCrateStartPosition ? crateStartPosition : crate.localPosition;
+        float acceleration = NetLiftAcceleration;
+        float logicalHeight = maxLiftHeight * Mathf.Clamp01(acceleration / 12f);
+        float visibleTravel = GetVisibleLiftTravel(start, logicalHeight);
+        Vector3 target = start + Vector3.up * visibleTravel;
         if (platform != null) platform.gameObject.SetActive(true);
         if (liftStatusText != null)
-            liftStatusText.text = $"<color=#82B79D>Crate rises</color>\n{maxLiftWeight:0} N lift − {Weight:0.#} N weight = {NetLiftForce:0.#} N upward. This gives {acceleration:0.##} m/s² acceleration.";
+            liftStatusText.text = $"<color=#82B79D>Crate rises</color>\n" +
+                $"Lift {maxLiftWeight:0} N - weight {Weight:0.#} N = +{NetLiftForce:0.#} N\n" +
+                $"Acceleration: {acceleration:0.##} m/s² upward.";
 
         float elapsed = 0f;
         while (elapsed < liftDuration)
         {
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / liftDuration);
-            float eased = 1f - Mathf.Pow(1f - t, 3f);
+            float eased = t * t;
             crate.localPosition = Vector3.Lerp(start, target, eased);
+            float liftPulse = Mathf.Sin(Mathf.Clamp01(elapsed / 0.28f) * Mathf.PI);
+            crate.localScale = crateStartScale * (1f + 0.04f * liftPulse);
             yield return null;
         }
 
         crate.localPosition = target;
+        crate.localScale = crateStartScale;
         liftRoutine = null;
+    }
+
+    private float GetVisibleLiftTravel(Vector3 start, float logicalHeight)
+    {
+        RectTransform crateRect = crate as RectTransform;
+        if (crateRect == null)
+            return logicalHeight;
+
+        float requestedPixels = logicalHeight * UiPixelsPerLogicalUnit;
+        RectTransform parentRect = crateRect.parent as RectTransform;
+        if (parentRect == null)
+            return requestedPixels;
+
+        float childHeight = crateRect.rect.height * Mathf.Abs(crateRect.localScale.y);
+        RectTransform travelArea = parentRect.Find("LiftStage") as RectTransform;
+        Bounds travelBounds = travelArea != null
+            ? RectTransformUtility.CalculateRelativeRectTransformBounds(parentRect, travelArea)
+            : new Bounds(Vector3.zero, parentRect.rect.size);
+        float minY = travelBounds.min.y + childHeight * crateRect.pivot.y + LiftStageEdgePadding;
+        float maxY = travelBounds.max.y - childHeight * (1f - crateRect.pivot.y) - LiftStageEdgePadding;
+        float targetY = Mathf.Clamp(start.y + requestedPixels, minY, maxY);
+        return Mathf.Max(0f, targetY - start.y);
+    }
+
+    private void StopAndResetCrate()
+    {
+        if (liftRoutine != null) StopCoroutine(liftRoutine);
+        liftRoutine = null;
+        ResetCrate();
     }
 
     private void ResetCrate()
     {
-        if (crate != null && hasCrateStartPosition) crate.localPosition = crateStartPosition;
+        if (crate != null && hasCrateStartPosition)
+        {
+            crate.localPosition = crateStartPosition;
+            crate.localScale = crateStartScale;
+        }
         if (liftStatusText != null) liftStatusText.text = "Ready to lift";
     }
 
     public void ResetLab()
     {
+        StopAndResetCrate();
         if (massSlider != null) massSlider.value = defaultMass;
         if (gravitySlider != null) gravitySlider.value = 9.81f;
         if (gravitySlider == null) defaultGravity = 9.81f;
-        if (liftRoutine != null) StopCoroutine(liftRoutine);
-        liftRoutine = null;
-        ResetCrate();
         UpdateDisplay();
     }
 

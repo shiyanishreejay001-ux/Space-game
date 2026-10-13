@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
@@ -15,12 +16,19 @@ public sealed class AcademyPanelMotion : MonoBehaviour
     private CanvasGroup canvasGroup;
     private Vector2 restingPosition;
     private Coroutine entrance;
+    private Coroutine feedbackPulse;
+    private Vector3 restingScale;
+    private Outline outline;
+    private Color restingOutlineColor;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         restingPosition = rectTransform.anchoredPosition;
+        restingScale = rectTransform.localScale;
+        outline = GetComponent<Outline>();
+        if (outline != null) restingOutlineColor = outline.effectColor;
     }
 
     private void OnEnable()
@@ -28,8 +36,37 @@ public sealed class AcademyPanelMotion : MonoBehaviour
         if (rectTransform == null) rectTransform = GetComponent<RectTransform>();
         if (canvasGroup == null) canvasGroup = GetComponent<CanvasGroup>();
         restingPosition = rectTransform.anchoredPosition;
+        restingScale = rectTransform.localScale;
+        if (outline == null) outline = GetComponent<Outline>();
+        if (outline != null) restingOutlineColor = outline.effectColor;
         if (entrance != null) StopCoroutine(entrance);
         entrance = StartCoroutine(Enter());
+    }
+
+    public void PlayFeedbackPulse(Color accent)
+    {
+        if (feedbackPulse != null) StopCoroutine(feedbackPulse);
+        feedbackPulse = StartCoroutine(FeedbackPulse(accent));
+    }
+
+    private IEnumerator FeedbackPulse(Color accent)
+    {
+        const float pulseDuration = 0.28f;
+        float elapsed = 0f;
+        while (elapsed < pulseDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(elapsed / pulseDuration);
+            float envelope = Mathf.Sin(t * Mathf.PI);
+            rectTransform.localScale = restingScale * (1f + 0.035f * envelope);
+            if (outline != null)
+                outline.effectColor = new Color(accent.r, accent.g, accent.b, accent.a * 0.55f * envelope);
+            yield return null;
+        }
+
+        rectTransform.localScale = restingScale;
+        if (outline != null) outline.effectColor = restingOutlineColor;
+        feedbackPulse = null;
     }
 
     private IEnumerator Enter()
@@ -59,6 +96,11 @@ public sealed class AcademyPanelMotion : MonoBehaviour
 
     private void OnDisable()
     {
+        if (feedbackPulse != null)
+        {
+            StopCoroutine(feedbackPulse);
+            feedbackPulse = null;
+        }
         if (entrance != null)
         {
             StopCoroutine(entrance);
@@ -70,6 +112,11 @@ public sealed class AcademyPanelMotion : MonoBehaviour
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
         }
-        if (rectTransform != null) rectTransform.anchoredPosition = restingPosition;
+        if (rectTransform != null)
+        {
+            rectTransform.anchoredPosition = restingPosition;
+            rectTransform.localScale = restingScale;
+        }
+        if (outline != null) outline.effectColor = restingOutlineColor;
     }
 }

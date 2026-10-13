@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 /// <summary>
 /// Controls the Experiment Mode for Force calculations.
@@ -35,11 +36,15 @@ public class ExperimentModeController : MonoBehaviour
     private float currentMass = 10f;
     private float currentAcceleration = 3f;
     private float currentForce = 30f;
+    private Coroutine completionPulse;
+    private Vector3 experimentStatusScale;
     private const float ReferenceMass = 10f;
     private const float ReferenceAcceleration = 3f;
 
     private void Start()
     {
+        if (experimentStatusText != null)
+            experimentStatusScale = experimentStatusText.rectTransform.localScale;
         if (relationshipText == null)
             relationshipText = transform.Find("EducationalNote")?.GetComponent<TextMeshProUGUI>();
         SetupSliders();
@@ -49,13 +54,23 @@ public class ExperimentModeController : MonoBehaviour
 
     private void OnEnable()
     {
+        if (rocketVisualization != null)
+            rocketVisualization.DemonstrationCompleted += HandleDemonstrationCompleted;
         UpdateDisplay();
     }
 
     private void OnDisable()
     {
-        CancelInvoke(nameof(ShowExperimentCompleteStatus));
         CancelInvoke(nameof(HideExperimentStatus));
+        if (completionPulse != null)
+        {
+            StopCoroutine(completionPulse);
+            completionPulse = null;
+        }
+        if (experimentStatusText != null)
+            experimentStatusText.rectTransform.localScale = experimentStatusScale;
+        if (rocketVisualization != null)
+            rocketVisualization.DemonstrationCompleted -= HandleDemonstrationCompleted;
         if (experimentStatusText != null) experimentStatusText.gameObject.SetActive(false);
     }
 
@@ -98,6 +113,7 @@ public class ExperimentModeController : MonoBehaviour
     private void OnMassChanged(float newMass)
     {
         currentMass = newMass;
+        CancelActiveDemonstration();
         CalculateForce();
         UpdateDisplay();
     }
@@ -105,6 +121,7 @@ public class ExperimentModeController : MonoBehaviour
     private void OnAccelerationChanged(float newAcceleration)
     {
         currentAcceleration = newAcceleration;
+        CancelActiveDemonstration();
         CalculateForce();
         UpdateDisplay();
     }
@@ -179,17 +196,36 @@ public class ExperimentModeController : MonoBehaviour
         {
             experimentStatusText.gameObject.SetActive(true);
             experimentStatusText.text = "<color=#82B79D>EXPERIMENT RUNNING</color>";
-            CancelInvoke(nameof(ShowExperimentCompleteStatus));
             CancelInvoke(nameof(HideExperimentStatus));
-            Invoke(nameof(ShowExperimentCompleteStatus), 3f);
-            Invoke(nameof(HideExperimentStatus), 5.2f);
         }
     }
 
-    private void ShowExperimentCompleteStatus()
+    private void HandleDemonstrationCompleted()
     {
         if (experimentStatusText != null && experimentStatusText.gameObject.activeSelf)
+        {
             experimentStatusText.text = "<color=#82B79D>EXPERIMENT COMPLETE</color>";
+            if (completionPulse != null) StopCoroutine(completionPulse);
+            completionPulse = StartCoroutine(PulseExperimentComplete());
+            CancelInvoke(nameof(HideExperimentStatus));
+            Invoke(nameof(HideExperimentStatus), 1.6f);
+        }
+    }
+
+    private IEnumerator PulseExperimentComplete()
+    {
+        const float pulseDuration = 0.3f;
+        float elapsed = 0f;
+        while (elapsed < pulseDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float envelope = Mathf.Sin(Mathf.Clamp01(elapsed / pulseDuration) * Mathf.PI);
+            experimentStatusText.rectTransform.localScale = experimentStatusScale * (1f + 0.06f * envelope);
+            yield return null;
+        }
+
+        experimentStatusText.rectTransform.localScale = experimentStatusScale;
+        completionPulse = null;
     }
 
     private void HideExperimentStatus()
@@ -205,7 +241,6 @@ public class ExperimentModeController : MonoBehaviour
     /// </summary>
     public void ResetExperiment()
     {
-        CancelInvoke(nameof(ShowExperimentCompleteStatus));
         CancelInvoke(nameof(HideExperimentStatus));
         if (experimentStatusText != null) experimentStatusText.gameObject.SetActive(false);
 
@@ -223,5 +258,13 @@ public class ExperimentModeController : MonoBehaviour
             rocketVisualization.ResetVisualization();
             rocketVisualization.UpdateExperimentPreview(currentMass, currentForce, currentAcceleration);
         }
+    }
+
+    private void CancelActiveDemonstration()
+    {
+        CancelInvoke(nameof(HideExperimentStatus));
+        if (experimentStatusText != null) experimentStatusText.gameObject.SetActive(false);
+        if (rocketVisualization != null && rocketVisualization.IsDemonstrating)
+            rocketVisualization.ResetVisualization();
     }
 }
