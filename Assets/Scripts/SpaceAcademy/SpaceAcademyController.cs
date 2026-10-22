@@ -32,6 +32,13 @@ public class SpaceAcademyController : MonoBehaviour
     private bool challengeCompleted = false;
     private bool hintUsed = false;
 
+    // Progression records distinct completed challenges separately from the existing score and streak.
+    private const string CompletedChallengesPrefKey = "SpaceAcademy.CompletedChallenges";
+    private const string LaunchThrustChallengeId = "launch_thrust";
+    private const int FirstChallengeMilestone = 1;
+    private int completedChallengeCount;
+    private bool launchThrustRecorded;
+
     public bool ChallengeCompleted => challengeCompleted;
 
     private void Start()
@@ -60,7 +67,27 @@ public class SpaceAcademyController : MonoBehaviour
             feedbackText.gameObject.SetActive(false);
         }
 
+        LoadChallengeProgress();
         UpdateProgressDisplay();
+    }
+
+    private void LoadChallengeProgress()
+    {
+        string savedIds = PlayerPrefs.GetString(CompletedChallengesPrefKey, string.Empty);
+        launchThrustRecorded = Array.IndexOf(savedIds.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries), LaunchThrustChallengeId) >= 0;
+        completedChallengeCount = savedIds.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Length;
+    }
+
+    private void RecordLaunchThrustCompletion()
+    {
+        if (launchThrustRecorded) return;
+
+        launchThrustRecorded = true;
+        completedChallengeCount++;
+        string savedIds = PlayerPrefs.GetString(CompletedChallengesPrefKey, string.Empty);
+        if (!string.IsNullOrEmpty(savedIds)) savedIds += ",";
+        PlayerPrefs.SetString(CompletedChallengesPrefKey, savedIds + LaunchThrustChallengeId);
+        PlayerPrefs.Save();
     }
 
     private void OnSubmitClicked()
@@ -120,6 +147,7 @@ public class SpaceAcademyController : MonoBehaviour
         }
 
         challengeCompleted = true;
+        RecordLaunchThrustCompletion();
 
         // Award points - more if no hint was used
         int pointsAwarded = hintUsed ? 5 : 10;
@@ -248,11 +276,15 @@ public class SpaceAcademyController : MonoBehaviour
         if (progressInfoText == null) return;
 
         string status = challengeCompleted ? "<color=#82B79D>Complete</color>" : "<color=#9CC4CC>In Progress</color>";
+        string milestone = completedChallengeCount >= FirstChallengeMilestone
+            ? "<color=#82B79D>Milestone complete: First physics challenge!</color>"
+            : $"First challenge milestone: <color=#9CC4CC>0/{FirstChallengeMilestone}</color>";
 
-        progressInfoText.text = $"<b>Problem:</b> 1 of 1\n\n" +
-                               $"<b>Score:</b> {currentScore} pts\n\n" +
-                               $"<b>Streak:</b> {currentStreak}\n\n" +
-                               $"<b>Status:</b> {status}";
+        progressInfoText.text = $"<b>Problem:</b> 1 of 1  •  <b>Status:</b> {status}\n" +
+                               $"<b>Score:</b> {currentScore} pts  •  <b>Streak:</b> {currentStreak}\n\n" +
+                               $"<b>Physics challenges completed:</b> {completedChallengeCount}\n{milestone}";
+
+        SpaceAcademyMastery.RefreshProgress(progressInfoText);
     }
 
     public void RestoreCompletedState()

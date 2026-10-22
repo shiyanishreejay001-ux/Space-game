@@ -195,6 +195,7 @@ public class GravityLabController : MonoBehaviour
         crate.localPosition = target;
         crate.localScale = crateStartScale;
         liftRoutine = null;
+        SpaceAcademyMastery.RecordGravityLift(Gravity);
     }
 
     private float GetVisibleLiftTravel(Vector3 start, float logicalHeight)

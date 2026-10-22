@@ -204,6 +204,7 @@ public class ExperimentModeController : MonoBehaviour
     {
         if (experimentStatusText != null && experimentStatusText.gameObject.activeSelf)
         {
+            SpaceAcademyMastery.RecordExperimentCompletion(currentMass, currentAcceleration);
             experimentStatusText.text = "<color=#82B79D>EXPERIMENT COMPLETE</color>";
             if (completionPulse != null) StopCoroutine(completionPulse);
             completionPulse = StartCoroutine(PulseExperimentComplete());
