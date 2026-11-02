@@ -181,6 +181,7 @@ public class AcademyModeManager : MonoBehaviour
         if (rocketVisualization != null)
         {
             rocketVisualization.ResetVisualization();
+            rocketVisualization.ShowGravityLabState();
         }
     }
 

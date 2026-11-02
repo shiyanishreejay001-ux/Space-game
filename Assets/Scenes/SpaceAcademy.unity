@@ -5530,6 +5530,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &84867027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7455,6 +7456,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &263279996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8065,6 +8067,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &343212948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8294,6 +8297,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &384341882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9516,6 +9520,7 @@ GameObject:
   - component: {fileID: 594946379}
   - component: {fileID: 594946378}
   - component: {fileID: 594946380}
+  - component: {fileID: 594946381}
   m_Layer: 0
   m_Name: AcademyController
   m_TagString: Untagged
@@ -9593,6 +9598,18 @@ MonoBehaviour:
   inactiveTabColor: {r: 0.1254902, g: 0.18431373, b: 0.22352941, a: 1}
   activeTextColor: {r: 0.9019608, g: 0.92941177, b: 0.9411765, a: 1}
   inactiveTextColor: {r: 0.6627451, g: 0.7294118, b: 0.7607843, a: 1}
+--- !u!114 &594946381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594946377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9b007e36b31444db416e9c75086a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpaceAcademyAmbientLife
 --- !u!1 &596624583
 GameObject:
   m_ObjectHideFlags: 0
@@ -10123,6 +10140,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &631117731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10276,6 +10294,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &634201617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11408,6 +11427,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &782378182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11589,6 +11609,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &837388137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13352,6 +13373,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &1005325845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15590,6 +15612,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &1201249239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15881,6 +15904,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &1254615297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18434,6 +18458,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &1622603037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20326,6 +20351,7 @@ MonoBehaviour:
   hoverScale: 1.018
   pressedScale: 0.985
   transitionDuration: 0.14
+  playSounds: 1
 --- !u!114 &1851026357
 MonoBehaviour:
   m_ObjectHideFlags: 0

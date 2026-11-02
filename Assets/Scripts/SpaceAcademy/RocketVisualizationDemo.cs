@@ -175,6 +175,18 @@ public class RocketVisualizationDemo : MonoBehaviour
         SetAwaitingState();
     }
 
+    /// <summary>
+    /// Updates the shared launch-bay readout when Gravity Lab is active.
+    /// </summary>
+    public void ShowGravityLabState()
+    {
+        if (statusText != null)
+        {
+            statusText.text = "GRAVITY LAB ACTIVE";
+            statusText.color = InkStatusColor;
+        }
+    }
+
     public void RestoreCompletedState(float mass, float force, float acceleration)
     {
         ResetVisualization();
