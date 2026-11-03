@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a5cd19fd4990248b38c24fb08d5e85, type: 3}
+  m_Name: UITheme
+  m_EditorClassIdentifier: Assembly-CSharp::UITheme
+  spaceBackground: {r: 0.043137256, g: 0.0627451, b: 0.14901961, a: 1}
+  panel: {r: 0.101960786, g: 0.13725491, b: 0.2784314, a: 0.8509804}
+  panelBorder: {r: 0.18039216, g: 0.76862746, b: 0.94509804, a: 0.4}
+  primary: {r: 0.18039216, g: 0.76862746, b: 0.94509804, a: 1}
+  accent: {r: 1, g: 0.62352943, b: 0.10980392, a: 1}
+  success: {r: 0.2901961, g: 0.87058824, b: 0.5019608, a: 1}
+  danger: {r: 0.9372549, g: 0.26666668, b: 0.26666668, a: 1}
+  textPrimary: {r: 0.9607843, g: 0.96862745, b: 1, a: 1}
+  textSecondary: {r: 0.6039216, g: 0.6509804, b: 0.78431374, a: 1}
+  textDisabled: {r: 0.5019608, g: 0.54901963, b: 0.6, a: 1}
+  buttonNormal: {r: 0.14117648, g: 0.19215687, b: 0.36862746, a: 1}
+  buttonHover: {r: 0.18039216, g: 0.26666668, b: 0.49803922, a: 1}
+  buttonPressed: {r: 0.105882354, g: 0.56078434, b: 0.70980394, a: 1}
+  buttonDisabled: {r: 0.101960786, g: 0.1254902, b: 0.21960784, a: 1}
+  font: {fileID: 11400000, guid: 9ca8f3cfa8d6934489a5b8dae2f5f9e6, type: 2}
+  headingSize: 36
+  bodySize: 22
+  captionSize: 16
+  cornerRadius: 12
+  borderWidth: 2
+  padding: 16
+  spacing: 10

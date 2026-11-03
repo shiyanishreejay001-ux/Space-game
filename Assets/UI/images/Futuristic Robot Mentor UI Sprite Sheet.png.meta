@@ -1,0 +1,922 @@
+fileFormatVersion: 2
+guid: 5c262beed855c674f9af187cb328efa7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 772
+        width: 701
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f552e99ae49b2b40bb6f74c2d8871c9
+      internalID: -1152808981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 802
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c049b5f6a9171224d9b6b765c7b9a73d
+      internalID: -307449525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 794
+        width: 184
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0791adaa55169504f8733415ec0a6e19
+      internalID: -361810408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 790
+        width: 175
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d305a30cd1c8ca04b98f18ab23166ec1
+      internalID: 1285066705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 782
+        width: 212
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4415de1b5566294983985065ed3ebd0
+      internalID: -689276231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 492
+        width: 196
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db2b33d9105f1645b32199f5a07e319
+      internalID: -1870321955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 499
+        width: 194
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01564e938596f3d419d9ea6a719ffc85
+      internalID: -1822697550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 501
+        width: 216
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4882f44ff15660442b98af8a5639ed0e
+      internalID: 92448028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 503
+        width: 216
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5604a3cd8d4e08b48b372c59daa9ac3c
+      internalID: -797501868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 502
+        width: 216
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7641688c55f3144ba6a87f28d786e6
+      internalID: 1628913667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 495
+        width: 191
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3314537afc69ad4187def2e178bf3df
+      internalID: -485272540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 488
+        width: 284
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62c3a67a6b7de140b83f85615b20070
+      internalID: -983296855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 302
+        width: 723
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89a009371bfd0244bfd2e28b22e17af
+      internalID: -1207915154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 303
+        width: 803
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490cb1b6a44be974a807dd76f6e86215
+      internalID: 887622819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 172
+        width: 164
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eacf85d8e4f7784480c6f9540551ab2
+      internalID: -969183188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 146
+        width: 156
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae77dd54a66923418b300416756f276
+      internalID: -1246305775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 159
+        width: 170
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb69e62e13b26e84f9e7f24e1ba066f5
+      internalID: 557615332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 135
+        width: 167
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceda9a3e6a06eff47a7fb3c4a9242790
+      internalID: -2102519125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 187
+        width: 201
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8570c7e8f468cfc4c9eaa22330cf2e97
+      internalID: 1833613672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 180
+        width: 192
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb804fcfe9f3dd4abc08a91e873fbc1
+      internalID: 1577597091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 194
+        width: 202
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a216cebc3e4634a81de4cb9b96352b
+      internalID: 1619813609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 188
+        width: 198
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3083cc3a4d74704b99d165f247e2806
+      internalID: 431582329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 35
+        width: 170
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d84849825ff95746836f14b94b965a9
+      internalID: 906605156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 50
+        width: 135
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa78cad99e583fe479241df4f77abded
+      internalID: -362975097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 61
+        width: 88
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ffbe0620b5f3541943aadb6ad5b5ec
+      internalID: 621109088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 18
+        width: 247
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda34e36f2e66954d97a9000ccca5a09
+      internalID: -290643868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 99
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7456b8aaea1f364c846c9d4bb9538f6
+      internalID: -94550805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 40
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b11492cb29038419c7afc477318a69
+      internalID: 1040243962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 21
+        width: 140
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a00bb280c509aca4fbc077199ee8578f
+      internalID: -705002548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 38
+        width: 109
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d27d2029eaec54a81569b3f5e9af06
+      internalID: -1892973470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 43
+        width: 108
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb660b989a274f4aa252b4c44d45283
+      internalID: -1383095406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 38
+        width: 99
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ccc1093516559746b3f9b933fe61e86
+      internalID: 956544294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 33
+        width: 115
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8f609b60285ce49a538f9f7564fe00
+      internalID: 2120360807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 34
+        width: 102
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75016c3c3a75ab84db6d2a5382f1b02f
+      internalID: 624057785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Robot Mentor UI Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 33
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f121ea43a3388054a8454ce2924f7b67
+      internalID: -355060678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 39292a99ee4706541a4200d855b42509
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Futuristic Robot Mentor UI Sprite Sheet_0: -1152808981
+      Futuristic Robot Mentor UI Sprite Sheet_1: -307449525
+      Futuristic Robot Mentor UI Sprite Sheet_10: -485272540
+      Futuristic Robot Mentor UI Sprite Sheet_11: -983296855
+      Futuristic Robot Mentor UI Sprite Sheet_12: -1207915154
+      Futuristic Robot Mentor UI Sprite Sheet_13: 887622819
+      Futuristic Robot Mentor UI Sprite Sheet_14: -969183188
+      Futuristic Robot Mentor UI Sprite Sheet_15: -1246305775
+      Futuristic Robot Mentor UI Sprite Sheet_16: 557615332
+      Futuristic Robot Mentor UI Sprite Sheet_17: -2102519125
+      Futuristic Robot Mentor UI Sprite Sheet_18: 1833613672
+      Futuristic Robot Mentor UI Sprite Sheet_19: 1577597091
+      Futuristic Robot Mentor UI Sprite Sheet_2: -361810408
+      Futuristic Robot Mentor UI Sprite Sheet_20: 1619813609
+      Futuristic Robot Mentor UI Sprite Sheet_21: 431582329
+      Futuristic Robot Mentor UI Sprite Sheet_22: 906605156
+      Futuristic Robot Mentor UI Sprite Sheet_23: -362975097
+      Futuristic Robot Mentor UI Sprite Sheet_24: 621109088
+      Futuristic Robot Mentor UI Sprite Sheet_25: -290643868
+      Futuristic Robot Mentor UI Sprite Sheet_26: -94550805
+      Futuristic Robot Mentor UI Sprite Sheet_27: 1040243962
+      Futuristic Robot Mentor UI Sprite Sheet_28: -705002548
+      Futuristic Robot Mentor UI Sprite Sheet_29: -1892973470
+      Futuristic Robot Mentor UI Sprite Sheet_3: 1285066705
+      Futuristic Robot Mentor UI Sprite Sheet_30: -1383095406
+      Futuristic Robot Mentor UI Sprite Sheet_31: 956544294
+      Futuristic Robot Mentor UI Sprite Sheet_32: 2120360807
+      Futuristic Robot Mentor UI Sprite Sheet_33: 624057785
+      Futuristic Robot Mentor UI Sprite Sheet_34: -355060678
+      Futuristic Robot Mentor UI Sprite Sheet_4: -689276231
+      Futuristic Robot Mentor UI Sprite Sheet_5: -1870321955
+      Futuristic Robot Mentor UI Sprite Sheet_6: -1822697550
+      Futuristic Robot Mentor UI Sprite Sheet_7: 92448028
+      Futuristic Robot Mentor UI Sprite Sheet_8: -797501868
+      Futuristic Robot Mentor UI Sprite Sheet_9: 1628913667
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

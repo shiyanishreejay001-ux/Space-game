@@ -1,0 +1,1152 @@
+fileFormatVersion: 2
+guid: 40746dbb6d99006479ba557d2770ef4e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 601
+        width: 204
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93c82a1783398bf47b5ec6e7275c700d
+      internalID: 1349187396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 868
+        width: 130
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391bc1ae81718a348998cb7abfec17dd
+      internalID: 1629352324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 728
+        width: 126
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0536f064c6b37c40a46e5173e58c15b
+      internalID: -68363328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 613
+        width: 68
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c96db386050c2544a5e72f49fef5e07
+      internalID: 1875128997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 612
+        width: 70
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d009ce670304249419e9dda132b5a473
+      internalID: 151178599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 601
+        width: 189
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920b78a7ed2bf4d4495c974b213bc412
+      internalID: 1097525389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 875
+        width: 140
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62f0e8cd53db1eb418cf9663ac93d950
+      internalID: -734664628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 730
+        width: 133
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729275cecd627b645aefd0965f76bdcc
+      internalID: 721817395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 617
+        width: 73
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eea4e3c44731b24eb257df22c6ec4c8
+      internalID: 308933012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 608
+        width: 71
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df23cc9fd1e2884faf23eb3fae0da9f
+      internalID: 447491871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 603
+        width: 174
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00082d4760d1154889718e6ebe5ad43
+      internalID: -2133043339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 873
+        width: 143
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f247c77fef1d84d4dbd820ebad02089e
+      internalID: -468258386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 728
+        width: 123
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe8b536fba48c4146a9c40d491f05232
+      internalID: 1379205487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 618
+        width: 70
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c134dc6c775d5e4cbab595aa188e280
+      internalID: 1037547870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 615
+        width: 93
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e069ca7693e861042be37fa3dc052dcf
+      internalID: 295962608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 601
+        width: 191
+        height: 423
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f6c49a3ac3df7d4ba8f77505336619b
+      internalID: 591845981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 876
+        width: 132
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f188f9ca6cff74a44b7c5d200358405e
+      internalID: 1630550033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 731
+        width: 139
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99e3d6a47730f84d934a5765c713ed9
+      internalID: 840556334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 619
+        width: 75
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a17406dca0e02f46ba354b4b4db8659
+      internalID: -117587660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 616
+        width: 82
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375b6f7562fe61549a1ebdba54540967
+      internalID: -1219804479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 291
+        width: 165
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93926f9987e63334ab05c2435bfa2473
+      internalID: -1131634350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 292
+        width: 127
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69e404136f2ffa4caaa8290ec1dbccd
+      internalID: -1727070280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 293
+        width: 138
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc81663006169d43b9d30e1473e2617
+      internalID: -1143599583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 293
+        width: 149
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7672deb7095b21748bd9607c3955209b
+      internalID: 1990569528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 293
+        width: 152
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850193d07a92deb48baf58cc84f1123d
+      internalID: -1002226009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 293
+        width: 168
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc42c9c69e0be340a2b1087d31c9713
+      internalID: 209757047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 295
+        width: 164
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e215b4b56e8b04597ddfd622f80883
+      internalID: 576101127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 293
+        width: 152
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ef0dfc87d56af4abca007dff99ddc3
+      internalID: -1991997465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 295
+        width: 150
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36834f17dc82704c8556fd727e52c9a
+      internalID: -1832650688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 291
+        width: 169
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47dffc676d70654ca82b6b0399f41d7
+      internalID: 242133579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 295
+        width: 164
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51922cf0ce1def5449fa2662c6a8b059
+      internalID: 32121605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 349
+        width: 122
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c293c16a167733459c66f7d47d48c96
+      internalID: 1849141551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 89
+        width: 86
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b4df96b01848040b1125c35f09116b
+      internalID: 2093680536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 90
+        width: 68
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce385b47a7df50841ab8bfe9806a0dc0
+      internalID: 1482238251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 68
+        width: 79
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b2136b180c1e34fbc3fba48c332a70
+      internalID: -1173758380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 73
+        width: 71
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb27c9a4e97ddf4b8e57ca0df4fad09
+      internalID: 801472614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 65
+        width: 82
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29caa1d42cf24244b89a24ed439b69c6
+      internalID: -1687767661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 69
+        width: 82
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c211046e0093a14580b94c7748c2f72
+      internalID: 1621026499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 95
+        width: 118
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a6b8e73347fb24aa492e352fefc0d1
+      internalID: -452052281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 89
+        width: 95
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eefa062a42c20745866a806333814eb
+      internalID: 4743874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 72
+        width: 87
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300004209b6a17f4ab7d90d1987432fc
+      internalID: -1966680187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 65
+        width: 103
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfdfd0e1f833a14408716b4a78f58ad2
+      internalID: -2107843524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 66
+        width: 99
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d7228d1fb9d2c4f900b065016062a0
+      internalID: -707493604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 61
+        width: 117
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6893ce95432337641ba8b7ef54f92c92
+      internalID: -176767774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sci-Fi Rocket Skins Sprite Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 63
+        width: 108
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1aa3a25d8b3026459a3e71889d84325
+      internalID: 1831806230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 769482c74864b564ea008853c7807d70
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sci-Fi Rocket Skins Sprite Sheet_0: 1349187396
+      Sci-Fi Rocket Skins Sprite Sheet_1: 1629352324
+      Sci-Fi Rocket Skins Sprite Sheet_10: -2133043339
+      Sci-Fi Rocket Skins Sprite Sheet_11: -468258386
+      Sci-Fi Rocket Skins Sprite Sheet_12: 1379205487
+      Sci-Fi Rocket Skins Sprite Sheet_13: 1037547870
+      Sci-Fi Rocket Skins Sprite Sheet_14: 295962608
+      Sci-Fi Rocket Skins Sprite Sheet_15: 591845981
+      Sci-Fi Rocket Skins Sprite Sheet_16: 1630550033
+      Sci-Fi Rocket Skins Sprite Sheet_17: 840556334
+      Sci-Fi Rocket Skins Sprite Sheet_18: -117587660
+      Sci-Fi Rocket Skins Sprite Sheet_19: -1219804479
+      Sci-Fi Rocket Skins Sprite Sheet_2: -68363328
+      Sci-Fi Rocket Skins Sprite Sheet_20: -1131634350
+      Sci-Fi Rocket Skins Sprite Sheet_21: -1727070280
+      Sci-Fi Rocket Skins Sprite Sheet_22: -1143599583
+      Sci-Fi Rocket Skins Sprite Sheet_23: 1990569528
+      Sci-Fi Rocket Skins Sprite Sheet_24: -1002226009
+      Sci-Fi Rocket Skins Sprite Sheet_25: 209757047
+      Sci-Fi Rocket Skins Sprite Sheet_26: 576101127
+      Sci-Fi Rocket Skins Sprite Sheet_27: -1991997465
+      Sci-Fi Rocket Skins Sprite Sheet_28: -1832650688
+      Sci-Fi Rocket Skins Sprite Sheet_29: 242133579
+      Sci-Fi Rocket Skins Sprite Sheet_3: 1875128997
+      Sci-Fi Rocket Skins Sprite Sheet_30: 32121605
+      Sci-Fi Rocket Skins Sprite Sheet_31: 1849141551
+      Sci-Fi Rocket Skins Sprite Sheet_32: 2093680536
+      Sci-Fi Rocket Skins Sprite Sheet_33: 1482238251
+      Sci-Fi Rocket Skins Sprite Sheet_34: -1173758380
+      Sci-Fi Rocket Skins Sprite Sheet_35: 801472614
+      Sci-Fi Rocket Skins Sprite Sheet_36: -1687767661
+      Sci-Fi Rocket Skins Sprite Sheet_37: 1621026499
+      Sci-Fi Rocket Skins Sprite Sheet_38: -452052281
+      Sci-Fi Rocket Skins Sprite Sheet_39: 4743874
+      Sci-Fi Rocket Skins Sprite Sheet_4: 151178599
+      Sci-Fi Rocket Skins Sprite Sheet_40: -1966680187
+      Sci-Fi Rocket Skins Sprite Sheet_41: -2107843524
+      Sci-Fi Rocket Skins Sprite Sheet_42: -707493604
+      Sci-Fi Rocket Skins Sprite Sheet_43: -176767774
+      Sci-Fi Rocket Skins Sprite Sheet_44: 1831806230
+      Sci-Fi Rocket Skins Sprite Sheet_5: 1097525389
+      Sci-Fi Rocket Skins Sprite Sheet_6: -734664628
+      Sci-Fi Rocket Skins Sprite Sheet_7: 721817395
+      Sci-Fi Rocket Skins Sprite Sheet_8: 308933012
+      Sci-Fi Rocket Skins Sprite Sheet_9: 447491871
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

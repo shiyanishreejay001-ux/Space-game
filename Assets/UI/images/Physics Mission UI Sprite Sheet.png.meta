@@ -1,0 +1,1547 @@
+fileFormatVersion: 2
+guid: 81333b1ab3ed31f498aeacee98e941dc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 819
+        width: 185
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a4fd15c542d9648ac16ce0f6f0e960
+      internalID: 2146549624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 193
+        width: 103
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60b9659a5fd6ea048819b4ffd0c8ffdb
+      internalID: -1517933017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 193
+        width: 101
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ba361ee731bdb48a867ee71f727897
+      internalID: -997843938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 821
+        width: 177
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881439e176b7dfb40a220fd2d71933fc
+      internalID: -2084060678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 823
+        width: 171
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6828dd434472a045adc77ad120446c7
+      internalID: -44137062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 813
+        width: 176
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b7068ce6ea54848bbbbd1351641901
+      internalID: 1866540785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 818
+        width: 167
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380bfbfc49b50324ba7aa08796f7a5e9
+      internalID: 357726309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 819
+        width: 176
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92424c11913b1a44180de10e087f4003
+      internalID: -394821639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 810
+        width: 176
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc95ff79a43871046891998b7990e4f8
+      internalID: -825324288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 816
+        width: 177
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cee1d7d06d1c7e48946a279d4c04692
+      internalID: -230089733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 679
+        width: 184
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7adbd149bf6c34a459466523ca28fcf9
+      internalID: 1247027901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 681
+        width: 186
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd526ca6741b301478bc3ce5b516dfd2
+      internalID: 846387624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 681
+        width: 184
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e079bbd288b17754c8be6c1440457c80
+      internalID: -1905205338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 667
+        width: 192
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3b67afcf02b6a4891b51ceceb0f52e
+      internalID: -690168050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 685
+        width: 118
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6a7e24f6cdfbe488d678ba89d7779b
+      internalID: 1511347109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 684
+        width: 161
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7605372e899c1434a9c27aab1c29b819
+      internalID: 173567096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 678
+        width: 199
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7094715ad80caf944a0baea95a55d72f
+      internalID: -841646569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 673
+        width: 234
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398688e7500711e41b31fb8a86d18c07
+      internalID: -969811113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 568
+        width: 115
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a7f6eccfb82314aa5522a05e43a17e
+      internalID: 1010913900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 569
+        width: 110
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83630e18ef31a354492780e361e7d502
+      internalID: -259520988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 567
+        width: 121
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd659e45169043642844287ac0d64005
+      internalID: 629303614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 574
+        width: 101
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054a5b8a504f06044b83fe3952dfe473
+      internalID: 1405315140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 556
+        width: 187
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4ad0d02d81ba545b046beaff01826c
+      internalID: -2141432558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 563
+        width: 208
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ac6f7a75559144abbfc62d187f02fc
+      internalID: -1714698208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 567
+        width: 123
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b528052ae9bd25b4c81835e2580acaaa
+      internalID: -1367213688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 558
+        width: 111
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84c5903dbefe134c922368c97cc94d9
+      internalID: 1661533131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 553
+        width: 116
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b0e3bbbbcb97744a7377ee44ec101c
+      internalID: -1736792122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 564
+        width: 117
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03dfb4e0321298f498e908f3f58e46e2
+      internalID: 1895431289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433
+        width: 517
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7986cff0daf95e7408aab894f1cc48d4
+      internalID: 20664041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 424
+        width: 489
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ff5ae04235e0c49ad6bd6be002500f
+      internalID: -1969266237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 424
+        width: 503
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc19554e7aceea645a536fb6d7500b38
+      internalID: -631713617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 337
+        width: 271
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f37c3ce5af52654a88db65652b219ad
+      internalID: 965427632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 328
+        width: 245
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce9b8c3fd2f38f47aadd4ab8c38f07c
+      internalID: -1592771163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 331
+        width: 247
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76edc7059bf0d60449597c041e2aab1a
+      internalID: 203173591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 332
+        width: 248
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb077627db0744a45b34c9ac6f013ae0
+      internalID: -1049390507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 327
+        width: 247
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5fd040dbadf0e45996fc067fc59e87
+      internalID: -1720142387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 326
+        width: 249
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f161eb809634b84eacc2453ab49e782
+      internalID: 166186232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 193
+        width: 99
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa13392d1a2da6a4c82d4234f17cdbfb
+      internalID: 1949983297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 190
+        width: 93
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd20cf482bf1ea458aed9b7a6ff2b90
+      internalID: -1898264530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 196
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f048ea472e01594682e2840e0367ac8
+      internalID: -1703383690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 193
+        width: 95
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcb8ac7f50acc64a88ed3b9ffc8e21f
+      internalID: 1362268489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 191
+        width: 95
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdbc6bf36c575424e8ec61827e13dc80
+      internalID: -1614713445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 194
+        width: 81
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cfb0f9a7f075049865563f7a3327f5
+      internalID: 1676501297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 196
+        width: 87
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a292bab35c9e340b21ba08782e2527
+      internalID: -168841327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 150
+        width: 184
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f958e520e07ba14478deca8f93829064
+      internalID: 1206757343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 153
+        width: 168
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c898062b9af14144800ef5fbff3fe5b
+      internalID: -2142839412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 153
+        width: 166
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eeea19c291491541868667847d821eb
+      internalID: 2124359664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 41
+        width: 100
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f023bf9921c61f24197a86372af2492f
+      internalID: 1284141118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 35
+        width: 103
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f34911fa3b24a48b043b8930b48414
+      internalID: -2009091577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 40
+        width: 103
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a372b7101dab51e49889868ca46dbc66
+      internalID: -775924420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 35
+        width: 105
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6d78626b6f54e408d47f9c016a15c6
+      internalID: -1170007787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 31
+        width: 97
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53be9db5fae012047bcb449c57df5b59
+      internalID: -1932625144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 32
+        width: 100
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbaf21585fe2a843a992993d95b267f
+      internalID: 1621988771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 30
+        width: 98
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3595a12f206cc4ea228aa3bdf936cb
+      internalID: -636893626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 31
+        width: 110
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8532b330440c3344be6584a3f4f662e
+      internalID: 1601242929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 52
+        width: 51
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04fb218f59f61df4ca6eb96ad1ab8a6b
+      internalID: 2109359940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 56
+        width: 49
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4a9fcab5302ea46b65a2eacb27f51f
+      internalID: 1909211162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 56
+        width: 83
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40231b6b352618a4d90dd7f9f54e5153
+      internalID: -1354597455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 45
+        width: 86
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68c3b48ba7a5e245afaa0985065ace5
+      internalID: 95512435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 56
+        width: 86
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d743df1733534c41aa087a81c03fcb3
+      internalID: 776098043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 48
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c23a5b8af40b2c47886350fff0c7ca3
+      internalID: -492824318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Physics Mission UI Sprite Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 1434
+        y: 52
+        width: 94
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a616c3270988ca4a86c1eff2bc1d0b5
+      internalID: 1154250255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 360ffc4df657dd240858ed7d0284f7ec
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Physics Mission UI Sprite Sheet_0: 2146549624
+      Physics Mission UI Sprite Sheet_1: -1517933017
+      Physics Mission UI Sprite Sheet_10: 1247027901
+      Physics Mission UI Sprite Sheet_11: 846387624
+      Physics Mission UI Sprite Sheet_12: -1905205338
+      Physics Mission UI Sprite Sheet_13: -690168050
+      Physics Mission UI Sprite Sheet_14: 1511347109
+      Physics Mission UI Sprite Sheet_15: 173567096
+      Physics Mission UI Sprite Sheet_16: -841646569
+      Physics Mission UI Sprite Sheet_17: -969811113
+      Physics Mission UI Sprite Sheet_18: 1010913900
+      Physics Mission UI Sprite Sheet_19: -259520988
+      Physics Mission UI Sprite Sheet_2: -997843938
+      Physics Mission UI Sprite Sheet_20: 629303614
+      Physics Mission UI Sprite Sheet_21: 1405315140
+      Physics Mission UI Sprite Sheet_22: -2141432558
+      Physics Mission UI Sprite Sheet_23: -1714698208
+      Physics Mission UI Sprite Sheet_24: -1367213688
+      Physics Mission UI Sprite Sheet_25: 1661533131
+      Physics Mission UI Sprite Sheet_26: -1736792122
+      Physics Mission UI Sprite Sheet_27: 1895431289
+      Physics Mission UI Sprite Sheet_28: 20664041
+      Physics Mission UI Sprite Sheet_29: -1969266237
+      Physics Mission UI Sprite Sheet_3: -2084060678
+      Physics Mission UI Sprite Sheet_30: -631713617
+      Physics Mission UI Sprite Sheet_31: 965427632
+      Physics Mission UI Sprite Sheet_32: -1592771163
+      Physics Mission UI Sprite Sheet_33: 203173591
+      Physics Mission UI Sprite Sheet_34: -1049390507
+      Physics Mission UI Sprite Sheet_35: -1720142387
+      Physics Mission UI Sprite Sheet_36: 166186232
+      Physics Mission UI Sprite Sheet_37: 1949983297
+      Physics Mission UI Sprite Sheet_38: -1898264530
+      Physics Mission UI Sprite Sheet_39: -1703383690
+      Physics Mission UI Sprite Sheet_4: -44137062
+      Physics Mission UI Sprite Sheet_40: 1362268489
+      Physics Mission UI Sprite Sheet_41: -1614713445
+      Physics Mission UI Sprite Sheet_42: 1676501297
+      Physics Mission UI Sprite Sheet_43: -168841327
+      Physics Mission UI Sprite Sheet_44: 1206757343
+      Physics Mission UI Sprite Sheet_45: -2142839412
+      Physics Mission UI Sprite Sheet_46: 2124359664
+      Physics Mission UI Sprite Sheet_47: 1284141118
+      Physics Mission UI Sprite Sheet_48: -2009091577
+      Physics Mission UI Sprite Sheet_49: -775924420
+      Physics Mission UI Sprite Sheet_5: 1866540785
+      Physics Mission UI Sprite Sheet_50: -1170007787
+      Physics Mission UI Sprite Sheet_51: -1932625144
+      Physics Mission UI Sprite Sheet_52: 1621988771
+      Physics Mission UI Sprite Sheet_53: -636893626
+      Physics Mission UI Sprite Sheet_54: 1601242929
+      Physics Mission UI Sprite Sheet_55: 2109359940
+      Physics Mission UI Sprite Sheet_56: 1909211162
+      Physics Mission UI Sprite Sheet_57: -1354597455
+      Physics Mission UI Sprite Sheet_58: 95512435
+      Physics Mission UI Sprite Sheet_59: 776098043
+      Physics Mission UI Sprite Sheet_6: 357726309
+      Physics Mission UI Sprite Sheet_60: -492824318
+      Physics Mission UI Sprite Sheet_61: 1154250255
+      Physics Mission UI Sprite Sheet_7: -394821639
+      Physics Mission UI Sprite Sheet_8: -825324288
+      Physics Mission UI Sprite Sheet_9: -230089733
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

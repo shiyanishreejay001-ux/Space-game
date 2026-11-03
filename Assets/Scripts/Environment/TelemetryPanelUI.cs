@@ -12,16 +12,32 @@ using TMPro;
 //    piece of spatial data that IS meaningful in this scene is distance to
 //    Earth's transform (Earth is a real GameObject already in the scene).
 //    This is a straight Vector3.Distance display computation - not a new
-//    physics/orbital system - shown in scene units ("u"), not meters, since
-//    SpaceScene is a stylized/scaled-down solar system (see
-//    SpaceRocketManager's spaceSceneScaleFactor) and showing "m" would
-//    falsely imply real-world scale.
-//  - VELOCITY: rb.linearVelocity.magnitude - directly real.
+//    physics/orbital system.
+//  - VELOCITY: rb.linearVelocity - directly real.
 //  - FUEL, THRUST: no fuel-display system and no live "current thrust" value
 //    exist anywhere in the project (confirmed by inspection). Per
 //    instructions, these are NOT invented: they're shown as inert "N/A"
 //    placeholders so a future system can be wired in later without any UI
 //    rework.
+//
+// Phase B4 (real units) - display-only change:
+//  - All unit conversion lives in UnitConverter (one constant, see that file).
+//    This class contains no conversion maths of its own.
+//  - ALTITUDE, APOAPSIS and PERIAPSIS are now shown as altitude ABOVE EARTH'S
+//    SURFACE in km (previously: distance to Earth's centre in "u"). Earth's
+//    radius is read from the Earth transform's scale, so it stays correct if
+//    Earth is ever rescaled (UnitConverter.KmPerUnit would need updating too).
+//    A periapsis below the surface (a sub-orbital path that would hit Earth)
+//    shows "Below surface" instead of a negative number.
+//  - VELOCITY is now shown in km/s, relative to Earth (ship velocity minus
+//    Earth's own orbital velocity around the Sun). That is the number orbit
+//    lessons need: a circular low orbit reads ~7.9 km/s and escape ~11.2 km/s.
+//    The old reading was the speed relative to the Sun's frame, which swings
+//    around the Earth-orbit speed even for a perfectly circular orbit. Turn
+//    showRealUnits off to get the original "u" / "u/s" display back, or turn
+//    velocityRelativeToEarth off to keep km/s but measure in the Sun's frame.
+//  - Only the HUD numbers changed; nothing in EarthOrbitalGravity,
+//    CruiseController or any physics system is read for tuning or written to.
 //
 // Polled once per frame in Update() rather than event-driven, because
 // there is no existing position/velocity-changed event in this codebase to
@@ -53,10 +69,6 @@ using TMPro;
 //    EarthOrbitalGravity - including gravitationalParameter, minDistance,
 //    and the force calculation - is read for tuning, written to, or
 //    otherwise touched. This class only formats numbers that already exist.
-//  - Shown in scene units ("u"), the SAME unit and F0 precision the
-//    ALTITUDE row already uses, so the three distances are directly
-//    comparable at a glance. Using "m" here would be as misleading as it
-//    would be for altitude (see the ALTITUDE note above).
 //  - EarthOrbitalGravity only produces orbit data once it has located the
 //    ship; until then HasOrbitData is false and both rows show the same
 //    inert grey "N/A" the other placeholder rows use, so an absent ship
@@ -65,7 +77,7 @@ using TMPro;
 //    reports +Infinity for a hyperbolic/parabolic orbit (its own comment
 //    names TelemetryPanelUI as the layer that should surface this), because
 //    the ship never comes back and no finite apoapsis exists. Printing
-//    "Infinity u" would be meaningless, so that case displays "Escaping".
+//    "Infinity" would be meaningless, so that case displays "Escaping".
 //    PERIAPSIS stays a real number there - closest approach is well-defined
 //    for any conic section, bound or not.
 //
@@ -104,6 +116,14 @@ public class TelemetryPanelUI : MonoBehaviour
     [SerializeField] private Transform earth;
     [SerializeField] private EarthOrbitalGravity orbitalGravity;
 
+    [Header("Units (Phase B4 - see class comment)")]
+    [Tooltip("True: km and km/s via UnitConverter. False: the original game units (u, u/s).")]
+    [SerializeField] private bool showRealUnits = true;
+    [Tooltip("True: velocity is measured relative to Earth (what orbit lessons need). False: velocity in the Sun's frame.")]
+    [SerializeField] private bool velocityRelativeToEarth = true;
+
+    private PlanetOrbit earthOrbit;
+
     private static readonly Color PlaceholderColor = new Color(0.5f, 0.55f, 0.6f);
     private static readonly Color LiveColor = Color.white;
 
@@ -119,6 +139,11 @@ public class TelemetryPanelUI : MonoBehaviour
         {
             GameObject earthObj = GameObject.Find("Earth");
             if (earthObj != null) earth = earthObj.transform;
+        }
+
+        if (earth != null)
+        {
+            earthOrbit = earth.GetComponent<PlanetOrbit>();
         }
 
         // Same auto-find pattern already used above for the ship and Earth.
@@ -151,16 +176,45 @@ public class TelemetryPanelUI : MonoBehaviour
 
         if (altitudeValue != null)
         {
-            float distanceToEarth = earth != null
-                ? Vector3.Distance(shipRigidbody.position, earth.position)
-                : 0f;
-            altitudeValue.text = earth != null ? $"{distanceToEarth:F0} u" : "N/A";
+            if (earth == null)
+            {
+                altitudeValue.text = "N/A";
+            }
+            else
+            {
+                float distanceToEarth = Vector3.Distance(shipRigidbody.position, earth.position);
+                if (showRealUnits)
+                {
+                    float altitudeKm = Mathf.Max(0f, UnitConverter.AltitudeKm(distanceToEarth, EarthRadiusUnits()));
+                    altitudeValue.text = UnitConverter.FormatKm(altitudeKm);
+                }
+                else
+                {
+                    altitudeValue.text = $"{distanceToEarth:F0} u";
+                }
+            }
         }
 
         if (velocityValue != null)
         {
-            velocityValue.text = $"{shipRigidbody.linearVelocity.magnitude:F1} u/s";
+            Vector3 velocity = shipRigidbody.linearVelocity;
+            if (velocityRelativeToEarth && earthOrbit != null)
+            {
+                velocity -= earthOrbit.GetOrbitalVelocity();
+            }
+
+            float speedUnits = velocity.magnitude;
+            velocityValue.text = showRealUnits
+                ? UnitConverter.FormatSpeedKmPerSecond(UnitConverter.SpeedToKmPerSecond(speedUnits))
+                : $"{speedUnits:F1} u/s";
         }
+    }
+
+    // Earth's radius in game units, read from the scene so it follows Earth's
+    // authored scale (default sphere mesh: radius = 0.5 * scale).
+    private float EarthRadiusUnits()
+    {
+        return earth != null ? earth.lossyScale.x * 0.5f : UnitConverter.EarthRadiusUnits;
     }
 
     // Formats elapsed scene time as MM:SS. Uses FloorToInt (not rounding) so
@@ -209,20 +263,28 @@ public class TelemetryPanelUI : MonoBehaviour
         SetLive(orbitStatusValue, isBound ? "Orbiting" : "Escaping");
     }
 
-    // Formats a distance the same way the ALTITUDE row does. Any
-    // non-finite result (NaN/Infinity from a degenerate solution) falls back
-    // to the inert placeholder rather than printing nonsense.
-    private void SetDistance(TextMeshProUGUI field, float distanceUnits)
+    // Formats an orbital distance (EarthOrbitalGravity reports it as distance
+    // from Earth's centre, in game units). Any non-finite result (NaN/Infinity
+    // from a degenerate solution) falls back to the inert placeholder rather
+    // than printing nonsense.
+    private void SetDistance(TextMeshProUGUI field, float distanceFromCentreUnits)
     {
         if (field == null) return;
 
-        if (float.IsNaN(distanceUnits) || float.IsInfinity(distanceUnits))
+        if (float.IsNaN(distanceFromCentreUnits) || float.IsInfinity(distanceFromCentreUnits))
         {
             SetPlaceholder(field);
             return;
         }
 
-        SetLive(field, $"{distanceUnits:F0} u");
+        if (!showRealUnits)
+        {
+            SetLive(field, $"{distanceFromCentreUnits:F0} u");
+            return;
+        }
+
+        float altitudeKm = UnitConverter.AltitudeKm(distanceFromCentreUnits, EarthRadiusUnits());
+        SetLive(field, altitudeKm < 0f ? "Below surface" : UnitConverter.FormatKm(altitudeKm));
     }
 
     private void SetLive(TextMeshProUGUI field, string text)
