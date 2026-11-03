@@ -27,6 +27,9 @@ namespace SpaceAcademyV2
     {
         public Button toggleButton;
         public TMP_Text toggleLabel;
+        public Image toggleIcon;
+        public Sprite soundOnSprite;
+        public Sprite soundOffSprite;
         public float musicVolume = 0.16f;
         const string Key = "SAV2_muted";
         static float savedSfx = -1f;
@@ -61,6 +64,7 @@ namespace SpaceAcademyV2
             src.volume = Muted ? 0f : musicVolume;
             Sfx.Volume = Muted ? 0f : savedSfx;
             if (toggleLabel != null) toggleLabel.text = Muted ? "SOUND OFF" : "SOUND ON";
+            if (toggleIcon != null) { var s = Muted ? soundOffSprite : soundOnSprite; if (s != null) { toggleIcon.sprite = s; toggleIcon.enabled = true; } }
         }
 
         static AudioClip BuildLoop()
