@@ -30,6 +30,11 @@ namespace SpaceAcademyV2
         public RectTransform platform, crate, astronaut;
         public TMP_Text crateLabel;
         public Button astronautButton;
+        public Image astronautImage;
+        public Sprite[] astronautFrames;     // animation frames (idle loop, jump / fall)
+        public float idleFps = 2.5f;
+        public float astronautScale = 0.8f;
+        public float[] astronautFootPad;   // transparent pixels under the feet, per frame (keeps feet on the ground)
         public TMP_Text astronautHint;
 
         [Header("Gauge + spring")]
@@ -48,6 +53,10 @@ namespace SpaceAcademyV2
         Vector2 platformBase, crateBase, astronautBase, springBase;
         float springBaseH;
         float needleAngle, needleVel;
+        bool falling;
+        Coroutine fallCo;
+        int pose = -1;   // forced pose frame while on the ground (-1 = idle)
+        float airK = -1f, animT;   // airK: 0..1 progress of jump/fall (-1 = on the ground)
 
         const float LiftPixels = 190f;
         const float LiftMeters = 2f;
@@ -61,7 +70,7 @@ namespace SpaceAcademyV2
             if (wired) return;
             wired = true;
             platformBase = platform.anchoredPosition; crateBase = crate.anchoredPosition;
-            astronautBase = astronaut.anchoredPosition; springBase = spring.anchoredPosition; springBaseH = spring.sizeDelta.y;
+            astronautBase = astronaut.anchoredPosition; if (astronautImage == null) astronautImage = astronaut.GetComponent<Image>(); springBase = spring.anchoredPosition; springBaseH = spring.sizeDelta.y;
             for (int i = 0; i < planetButtons.Length; i++)
             {
                 int idx = i;
@@ -69,7 +78,7 @@ namespace SpaceAcademyV2
             }
             massSlider.onValueChanged.AddListener(v => { Sfx.Play(Snd.Tick, 0.4f); Refresh(); });
             liftButton.onClick.AddListener(Lift);
-            resetButton.onClick.AddListener(() => { StopAllCoroutines(); lifting = jumping = false; massSlider.value = 10f; SelectPlanet(0, true); });
+            resetButton.onClick.AddListener(() => { StopAllCoroutines(); lifting = jumping = falling = false; airK = -1f; pose = -1; astronaut.anchoredPosition = astronautBase; massSlider.value = 10f; SelectPlanet(0, true); });
             astronautButton.onClick.AddListener(Jump);
         }
 
@@ -77,7 +86,7 @@ namespace SpaceAcademyV2
         {
             Wire();
             StopAllCoroutines();
-            lifting = jumping = false;
+            lifting = jumping = falling = false; airK = -1f; pose = -1;
             platform.anchoredPosition = platformBase; crate.anchoredPosition = crateBase; astronaut.anchoredPosition = astronautBase;
             massSlider.value = Mathf.Max(massSlider.value, 10f);
             SelectPlanet(planet, false);
@@ -99,6 +108,7 @@ namespace SpaceAcademyV2
             }
             planetTitle.text = names[p] + "  ·  g = " + G.ToString("0.00", CultureInfo.InvariantCulture) + " m/s²";
             Refresh();
+            if (astronautFrames != null && astronautFrames.Length > 0) { if (fallCo != null) StopCoroutine(fallCo); fallCo = StartCoroutine(FallRoutine()); }
             if (speak)
             {
                 Sfx.Play(Snd.Tab);
@@ -137,8 +147,54 @@ namespace SpaceAcademyV2
             crate.localScale = Vector3.one * Mathf.Lerp(0.8f, 1.1f, Mathf.Clamp01(m / 100f));
         }
 
+        // astronautFrames order: 0 stand, 1 crouch, 2 launch, 3 air, 4 air (falling), 5 landing
+        void AnimateAstronaut()
+        {
+            if (astronautImage == null || astronautFrames == null || astronautFrames.Length < 6) return;
+            int i;
+            if (airK >= 0f) i = 2 + Mathf.Min(2, (int)(airK * 3f));
+            else if (pose >= 0) i = pose;
+            else
+            {
+                i = 0;   // idle: gently alternate stand / idle-alt frame
+                if (astronautFrames.Length > 6 && astronautFrames[6] != null && idleFps > 0f) { animT += Time.unscaledDeltaTime; if (((int)(animT * idleFps)) % 2 == 1) i = 6; }
+            }
+            var s = astronautFrames[Mathf.Clamp(i, 0, astronautFrames.Length - 1)];
+            if (s == null) return;
+            astronautImage.sprite = s;
+            astronautImage.preserveAspect = true;
+            var rt = astronautImage.rectTransform;
+            rt.sizeDelta = new Vector2(s.rect.width, s.rect.height) * astronautScale;
+            float pad = astronautFootPad != null && i < astronautFootPad.Length ? astronautFootPad[i] : 0f;
+            rt.pivot = new Vector2(0.5f, -pad / s.rect.height);
+        }
+
+        // Gravity pulls the astronaut down to the ground; fall time depends on the selected planet's g.
+        IEnumerator FallRoutine()
+        {
+            falling = true;
+            const float startH = 170f, pxPerM = 75f;
+            float gpx = G * pxPerM;
+            float total = Mathf.Sqrt(2f * startH / gpx);
+            float t = 0f;
+            while (t < total)
+            {
+                t += Time.unscaledDeltaTime;
+                float y = Mathf.Max(0f, startH - 0.5f * gpx * t * t);
+                astronaut.anchoredPosition = astronautBase + new Vector2(0f, y);
+                airK = 0.4f + 0.6f * Mathf.Clamp01(t / total);   // mid-air pose, then falling pose
+                yield return null;
+            }
+            astronaut.anchoredPosition = astronautBase;
+            airK = -1f; pose = 5;
+            Sfx.Play(Snd.Thud, 0.5f);
+            yield return new WaitForSecondsRealtime(0.2f);
+            pose = -1; falling = false;
+        }
+
         void Update()
         {
+            AnimateAstronaut();
             if (needle == null) return;
             float kgEq = Mathf.Clamp(Weight / 9.81f, 0f, 100f);
             float target = 120f - 2.4f * kgEq;
@@ -192,7 +248,7 @@ namespace SpaceAcademyV2
 
         void Jump()
         {
-            if (jumping || lifting) return;
+            if (jumping || lifting || falling) return;
             StartCoroutine(JumpRoutine());
         }
 
@@ -204,16 +260,23 @@ namespace SpaceAcademyV2
             float pxPerM = 75f;
             if (astronautHint != null) astronautHint.gameObject.SetActive(false);
             Sfx.Play(Snd.Tab);
+            pose = 1;   // crouch
+            yield return new WaitForSecondsRealtime(0.18f);
+            pose = -1;
             float t = 0f;
             while (t < total)
             {
                 t += Time.unscaledDeltaTime;
                 float y = v0 * t - 0.5f * g * t * t;
                 astronaut.anchoredPosition = astronautBase + new Vector2(0f, Mathf.Max(0f, y) * pxPerM);
+                airK = Mathf.Clamp01(t / total);
                 yield return null;
             }
             astronaut.anchoredPosition = astronautBase;
+            airK = -1f; pose = 5;   // landing
             Sfx.Play(Snd.Thud, 0.6f);
+            yield return new WaitForSecondsRealtime(0.2f);
+            pose = -1;
             float h = v0 * v0 / (2f * g);
             mentor.Say("Jump height = v² ÷ (2g) = " + h.ToString("0.00", CultureInfo.InvariantCulture) + " m on " + names[planet].ToLower() + ". Lower gravity means higher jumps!");
             if (astronautHint != null) astronautHint.gameObject.SetActive(true);

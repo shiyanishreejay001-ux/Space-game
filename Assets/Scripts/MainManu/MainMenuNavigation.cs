@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuNavigation : MonoBehaviour
 {
     private const string MissionSelectScene = "MissionSelect";
-    private const string SpaceAcademyScene = "SpaceAcademy";
+    private const string SpaceAcademyScene = "SpaceAcademy_V2";
     private const string GameplayScene = "RocketLauncher";
 
     [Header("PLAY")]
