@@ -1,0 +1,462 @@
+fileFormatVersion: 2
+guid: d8578cdec8d50984da9d64025d7b55c4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 666
+        width: 275
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50aa63a1c09c74b4a9f6fff121e24bf5
+      internalID: 1107317317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 658
+        width: 188
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee9fea2733c32a4eb25348c435c38ed
+      internalID: -2079960378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 688
+        width: 833
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b867a95fde90ffc40bd0006b4000a745
+      internalID: 260892870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 470
+        width: 168
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40103493218ac2489d5c0949d5f0279
+      internalID: -313293716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 449
+        width: 220
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a50c1a90c76e6f458443be700503bc5
+      internalID: -751861471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 428
+        width: 214
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b4f78d9c0ab254596d8a8fa4be7276
+      internalID: -204548685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 410
+        width: 184
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10c9622ba15c1f4fb45aa81695563e2
+      internalID: -1002253246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 435
+        width: 168
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521a6c7f36758554fa2c370503bc72dc
+      internalID: 228768129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 471
+        width: 183
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3aa7a67d3f6891489eca44d9e2e8766
+      internalID: 1819884981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 92
+        width: 267
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d83bfda9cad531469423b4f9bf68577
+      internalID: 724774383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 49
+        width: 269
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06df99eb4a808ac47b1565dc7e956f94
+      internalID: -695692160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 0
+        width: 274
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417a92b007ce8f347946dd5a1deb0638
+      internalID: 1976253830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 8
+        width: 271
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69cb818ff756a5d48b45eeb9efadb6cd
+      internalID: 1302386223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 60
+        width: 257
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06171e8baafde4145866ac56e5bdc3c8
+      internalID: -406339771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket Thruster Flame Sprite Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 98
+        width: 261
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08002ae64e0640a42bb3d5cb3c2dc7ab
+      internalID: -71083603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 73bc7a69d3bf8e44d95d9131bd593c87
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rocket Thruster Flame Sprite Sheet_0: 1107317317
+      Rocket Thruster Flame Sprite Sheet_1: -2079960378
+      Rocket Thruster Flame Sprite Sheet_10: -695692160
+      Rocket Thruster Flame Sprite Sheet_11: 1976253830
+      Rocket Thruster Flame Sprite Sheet_12: 1302386223
+      Rocket Thruster Flame Sprite Sheet_13: -406339771
+      Rocket Thruster Flame Sprite Sheet_14: -71083603
+      Rocket Thruster Flame Sprite Sheet_2: 260892870
+      Rocket Thruster Flame Sprite Sheet_3: -313293716
+      Rocket Thruster Flame Sprite Sheet_4: -751861471
+      Rocket Thruster Flame Sprite Sheet_5: -204548685
+      Rocket Thruster Flame Sprite Sheet_6: -1002253246
+      Rocket Thruster Flame Sprite Sheet_7: 228768129
+      Rocket Thruster Flame Sprite Sheet_8: 1819884981
+      Rocket Thruster Flame Sprite Sheet_9: 724774383
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

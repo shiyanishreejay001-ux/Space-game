@@ -1,0 +1,462 @@
+fileFormatVersion: 2
+guid: cd6e74619da381f45a72752b1545728d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 658
+        width: 585
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ab955138076a54ca459d88fc32f0d1
+      internalID: -1525999062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 655
+        width: 563
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffad1ee54867d2943b37a3008dd4e882
+      internalID: 626973568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 654
+        width: 570
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075c8c2865ad308428d21f90c5520271
+      internalID: 578830432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 508
+        width: 566
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50024fe80514d3e4d9b052e836dc748c
+      internalID: 531720483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 503
+        width: 567
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b97c08296951f4bb5afe0af058f17a
+      internalID: -70595619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 514
+        width: 588
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a9f92f7e494b4b44b9a67ed3d38c46a
+      internalID: 1491866017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 187
+        width: 309
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6df19111284174886b5dbe47197ee1
+      internalID: 2131795147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 187
+        width: 285
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94fab2877667ef4cbcdb92f6b6b5732
+      internalID: 1578644879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 193
+        width: 279
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29453e72b09db1f4aade6e6534c19002
+      internalID: 1865209048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 190
+        width: 285
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e2dd819ba359747b730e07874f3f78
+      internalID: -1763575007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 188
+        width: 277
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d7ac0049229cc42afacbc872d70bac
+      internalID: 346411709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 183
+        width: 296
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15fd8cbf7bce35449b86ffef29aa028
+      internalID: -1206169006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 35
+        width: 589
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0535ddc19a17438418c3609a9fe7587a
+      internalID: 1640788461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 32
+        width: 567
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585bd32d2c032d24790dfa39c307f317
+      internalID: 2003134156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neon Sci-Fi Game UI Asset Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 39
+        width: 567
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df3962af0bc599a42be07603d6b973b6
+      internalID: 1142527830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e31f66b1c34df5b46909d03686be1f66
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Neon Sci-Fi Game UI Asset Sheet_0: -1525999062
+      Neon Sci-Fi Game UI Asset Sheet_1: 626973568
+      Neon Sci-Fi Game UI Asset Sheet_10: 346411709
+      Neon Sci-Fi Game UI Asset Sheet_11: -1206169006
+      Neon Sci-Fi Game UI Asset Sheet_12: 1640788461
+      Neon Sci-Fi Game UI Asset Sheet_13: 2003134156
+      Neon Sci-Fi Game UI Asset Sheet_14: 1142527830
+      Neon Sci-Fi Game UI Asset Sheet_2: 578830432
+      Neon Sci-Fi Game UI Asset Sheet_3: 531720483
+      Neon Sci-Fi Game UI Asset Sheet_4: -70595619
+      Neon Sci-Fi Game UI Asset Sheet_5: 1491866017
+      Neon Sci-Fi Game UI Asset Sheet_6: 2131795147
+      Neon Sci-Fi Game UI Asset Sheet_7: 1578644879
+      Neon Sci-Fi Game UI Asset Sheet_8: 1865209048
+      Neon Sci-Fi Game UI Asset Sheet_9: -1763575007
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

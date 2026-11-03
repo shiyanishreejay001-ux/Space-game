@@ -4,24 +4,49 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using TMPro;
 
-/// <summary>Applies the restrained Space Academy visual theme to the open academy scene.</summary>
+/// <summary>Applies the shared game UITheme (navy/cyan/orange) to the open Space Academy scene.</summary>
 public static class SpaceAcademyVisualRefresh
 {
-    private static readonly Color Ink = Hex("#101820");
-    private static readonly Color Panel = Hex("#1A2731");
-    private static readonly Color PanelRaised = Hex("#202F39");
-    private static readonly Color Edge = Hex("#344650");
-    private static readonly Color TextPrimary = Hex("#E6EDF0");
-    private static readonly Color TextSecondary = Hex("#A9BAC2");
-    private static readonly Color Teal = Hex("#83C3C9");
-    private static readonly Color TealDeep = Hex("#2E777D");
-    private static readonly Color Amber = Hex("#D9B477");
-    private static readonly Color Green = Hex("#82B79D");
-    private static readonly Color Red = Hex("#CE8876");
+    // Palette is read from Assets/Resources/UITheme.asset in LoadPalette().
+    // Fallback values below match the UITheme defaults.
+    private static Color Ink = Hex("#0B1026");
+    private static Color Panel = Hex("#1A2347");
+    private static Color PanelRaised = Hex("#24315E");
+    private static Color Edge = Hex("#2E447F");
+    private static Color TextPrimary = Hex("#F5F7FF");
+    private static Color TextSecondary = Hex("#9AA6C8");
+    private static Color Teal = Hex("#2EC4F1");      // primary cyan
+    private static Color TealDeep = Hex("#1E7396");  // darker cyan for filled buttons (readable white text)
+    private static Color Amber = Hex("#FF9F1C");     // accent orange
+    private static Color Green = Hex("#4ADE80");
+    private static Color Red = Hex("#EF4444");
+
+    private static void LoadPalette()
+    {
+        var theme = AssetDatabase.LoadAssetAtPath<UITheme>("Assets/Resources/UITheme.asset");
+        if (theme == null)
+        {
+            Debug.LogWarning("UITheme asset not found at Assets/Resources/UITheme.asset. Using built-in fallback palette.");
+            return;
+        }
+        Ink = theme.spaceBackground;
+        Panel = new Color(theme.panel.r, theme.panel.g, theme.panel.b, 1f);
+        PanelRaised = theme.buttonNormal;
+        Edge = theme.buttonHover;
+        TextPrimary = theme.textPrimary;
+        TextSecondary = theme.textSecondary;
+        Teal = theme.primary;
+        TealDeep = Color.Lerp(theme.primary, theme.spaceBackground, 0.45f);
+        Amber = theme.accent;
+        Green = theme.success;
+        Red = theme.danger;
+    }
 
     [MenuItem("Tools/Space Academy/Apply Visual Refresh")]
     public static void Apply()
     {
+        LoadPalette();
+
         var scene = EditorSceneManager.GetActiveScene();
         if (scene.name != "SpaceAcademy")
         {
@@ -36,13 +61,16 @@ public static class SpaceAcademyVisualRefresh
         var canvas = Object.FindFirstObjectByType<Canvas>();
         if (canvas == null) return;
 
-        var orbitron = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>("Assets/UI/fonts/Orbitron Bold SDF.asset");
+        var themeFont = AssetDatabase.LoadAssetAtPath<UITheme>("Assets/Resources/UITheme.asset");
+        var orbitron = (themeFont != null && themeFont.font != null)
+            ? themeFont.font
+            : AssetDatabase.LoadAssetAtPath<TMP_FontAsset>("Assets/UI/fonts/Orbitron Bold SDF.asset");
         var body = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>("Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset");
 
         foreach (var image in canvas.GetComponentsInChildren<Image>(true))
         {
             string n = image.gameObject.name;
-            if (n == "Background" && image.transform.parent.GetComponent<Slider>() != null) image.color = Hex("#263640");
+            if (n == "Background" && image.transform.parent.GetComponent<Slider>() != null) image.color = PanelRaised;
             else if (n == "Background") image.color = Ink;
             else if (n == "HeaderPanel") image.color = Panel;
             else if (n == "ProblemPanel" || n == "CalculationWorkspace" || n == "AnswerInputPanel" ||
@@ -58,9 +86,9 @@ public static class SpaceAcademyVisualRefresh
             else if (n == "HintButton" || n == "ResetButton" || n == "ChallengeTabButton" ||
                      n == "ExperimentTabButton" || n == "GravityTabButton" || n == "ReturnButton")
                 image.color = PanelRaised;
-            else if (n == "EarthButton") image.color = Hex("#365E70");
-            else if (n == "MoonButton") image.color = Hex("#49545E");
-            else if (n == "MarsButton") image.color = Hex("#76564B");
+            else if (n == "EarthButton") image.color = Hex("#1B5E8C");
+            else if (n == "MoonButton") image.color = Hex("#4A5578");
+            else if (n == "MarsButton") image.color = Hex("#8C4A3A");
 
             var outline = image.GetComponent<Outline>();
             if (outline != null) outline.enabled = false;
@@ -106,6 +134,7 @@ public static class SpaceAcademyVisualRefresh
             {
                 text.fontSize = Mathf.Clamp(text.fontSize, 19f, 30f);
                 text.characterSpacing = n == "AcademyTitle" ? 1.3f : 0.7f;
+                if (n == "AcademyTitle") text.color = Teal;
             }
             else if (n == "Subtitle" || n == "Placeholder" || n == "MassRange" ||
                      n == "MassRangeMax" || n == "GravityRange" || n == "GravityRangeMax" ||
@@ -157,7 +186,7 @@ public static class SpaceAcademyVisualRefresh
 
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
-        Debug.Log("Space Academy visual refresh applied.");
+        Debug.Log("Space Academy visual refresh applied (UITheme palette).");
     }
 
     private static void StyleMotion(Transform target)

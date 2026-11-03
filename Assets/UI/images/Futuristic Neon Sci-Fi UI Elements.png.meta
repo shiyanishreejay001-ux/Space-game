@@ -1,0 +1,623 @@
+fileFormatVersion: 2
+guid: c9a24f8ca908c644dbf41473694e20ec
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 846
+        width: 462
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74c0437d7b0b264b97a354120cf15ba
+      internalID: 1543823148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 725
+        width: 462
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1acdd698c587ee04aa5447579c3dabc3
+      internalID: 153370978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 603
+        width: 462
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f99ab2a12ce06a4a9dae155cc6ecf52
+      internalID: 2115642455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_3
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 475
+        width: 462
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f11d41be067c247ac6780f78e9ddb9
+      internalID: 1154842566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_4
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 856
+        width: 324
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9298c095e22a6469680a77fb89edef
+      internalID: -1320796879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_5
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 734
+        width: 324
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ec7ded0fefb444491d0c9f21b6b640
+      internalID: 356809793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_6
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 606
+        width: 324
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11acacd5f607a3249a95143322b9c72d
+      internalID: -936485531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_7
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 483
+        width: 324
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778d28e4d7441bb4bbb63d061e7ac29d
+      internalID: -1822714784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_8
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 845
+        width: 664
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276a1065e3a217d46be23fa977d9708b
+      internalID: 1209870557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_9
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 694
+        width: 678
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b715b5cd1da077447bbe455caa99c536
+      internalID: -1108183417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_10
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 363
+        width: 719
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1356386cf0e094043a71582b2f60a659
+      internalID: -1383067225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 292
+        width: 720
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077dc7415719cc5469f2f99010ec70f5
+      internalID: 295130794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 199
+        width: 703
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd1efdc85eb414b4ebce696ee22eeb3b
+      internalID: 536884001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_13
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 434
+        width: 240
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092cff8344d228d47bfa74921ccda9de
+      internalID: -1148097194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_14
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 427
+        width: 240
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3af3e07dc5a78b4d92310a766723756
+      internalID: -1890190621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_15
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 424
+        width: 240
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f496ce1d2310e408c081cc6082b7b2
+      internalID: -89463071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_16
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 195
+        width: 756
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55af913b38120744a99af24e823461ae
+      internalID: -1972932136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_17
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 43
+        width: 166
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90551304d8914cd448492431ba6e34f0
+      internalID: -824649657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_18
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 45
+        width: 166
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ab59876b9786244875eb87a3634ca7
+      internalID: 1856460038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_19
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 43
+        width: 166
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a7976868f3c384686f96855c04564c
+      internalID: -1111931960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_20
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 46
+        width: 166
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b95a006559c1b409e2f1c232a243f6
+      internalID: 1561335849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Futuristic Neon Sci-Fi UI Elements_21
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 199
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299c7ac5c731eb743847792246efc7f9
+      internalID: -871705827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c32c5df9fc38215498f89196b37e5f0c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Futuristic Neon Sci-Fi UI Elements_0: 1543823148
+      Futuristic Neon Sci-Fi UI Elements_1: 153370978
+      Futuristic Neon Sci-Fi UI Elements_10: -1383067225
+      Futuristic Neon Sci-Fi UI Elements_11: 295130794
+      Futuristic Neon Sci-Fi UI Elements_12: 536884001
+      Futuristic Neon Sci-Fi UI Elements_13: -1148097194
+      Futuristic Neon Sci-Fi UI Elements_14: -1890190621
+      Futuristic Neon Sci-Fi UI Elements_15: -89463071
+      Futuristic Neon Sci-Fi UI Elements_16: -1972932136
+      Futuristic Neon Sci-Fi UI Elements_17: -824649657
+      Futuristic Neon Sci-Fi UI Elements_18: 1856460038
+      Futuristic Neon Sci-Fi UI Elements_19: -1111931960
+      Futuristic Neon Sci-Fi UI Elements_2: 2115642455
+      Futuristic Neon Sci-Fi UI Elements_20: 1561335849
+      Futuristic Neon Sci-Fi UI Elements_21: -871705827
+      Futuristic Neon Sci-Fi UI Elements_3: 1154842566
+      Futuristic Neon Sci-Fi UI Elements_4: -1320796879
+      Futuristic Neon Sci-Fi UI Elements_5: 356809793
+      Futuristic Neon Sci-Fi UI Elements_6: -936485531
+      Futuristic Neon Sci-Fi UI Elements_7: -1822714784
+      Futuristic Neon Sci-Fi UI Elements_8: 1209870557
+      Futuristic Neon Sci-Fi UI Elements_9: -1108183417
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
